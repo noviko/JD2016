@@ -4,8 +4,7 @@ import by.it.daylidovich.FreeMathLab.InputOutput.ConsolePrinter;
 import by.it.daylidovich.FreeMathLab.InputOutput.SaveReadVariables;
 import by.it.daylidovich.FreeMathLab.Logger.Logger;
 import by.it.daylidovich.FreeMathLab.Parser.Parser;
-import by.it.daylidovich.FreeMathLab.Report.ReportBuilder;
-import by.it.daylidovich.FreeMathLab.Report.StandartReport;
+import by.it.daylidovich.FreeMathLab.Report.Director;
 import by.it.daylidovich.FreeMathLab.variables.Variable;
 
 import java.io.IOException;
@@ -19,16 +18,15 @@ public class Main {
 
         System.out.println("Введите название отчета.");
         String name ="report"; //readInput();
-        ReportBuilder report = new StandartReport();
-        report.createHeader(name);
-        report.createStartTime();
+        Director.setStandartReport(name);
+
 
         Logger.getInstanse();
 
         System.out.println("Введите выражение для рассчета или сохранения переменной.\n" + "Нажмите Enter для выхода.");
         String stringInput = readInput();
         while (stringInput.length() != 0){
-            report.createAction(stringInput);
+            Director.setAction(stringInput);
             switch (stringInput){
                 case "printvar":{
                     Variable.printVariables();
@@ -54,7 +52,7 @@ public class Main {
             System.out.println("\nВведите выражение для рассчета или сохранения переменной.\n" + "Нажмите Enter для выхода.");
             stringInput = readInput();
         }
-        report.createStopTime();
+        Director.endReport();
         SaveReadVariables.saveBase();
     }
 }

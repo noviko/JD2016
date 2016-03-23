@@ -19,6 +19,7 @@ public class StandartReport extends ReportBuilder {
     @Override
     public void createStopTime() {
         recordReport("Время окончания работы приложения: " + new Date(System.currentTimeMillis()).toString());
+        closeReport();
     }
 
     @Override
