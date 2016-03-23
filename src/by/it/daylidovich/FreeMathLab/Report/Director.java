@@ -1,19 +1,19 @@
 package by.it.daylidovich.FreeMathLab.Report;
 
 public class Director {
-    private static ReportBuilder report;
+    private static ReportBuilder builder;
 
     public static void setStandartReport(String name){
-        report = new StandartReport();
-        report.createHeader(name);
-        report.createStartTime();
+        builder = new StandartReport();
+        builder.createHeader(name);
+        builder.createStartTime();
     }
 
     public static void setAction(String action){
-        report.createAction(action);
+        builder.createAction(action);
     }
 
     public static void endReport(){
-        report.createStopTime();
+        builder.createStopTime();
     }
 }
