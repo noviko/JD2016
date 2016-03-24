@@ -14,6 +14,13 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
     private int maxChooseTime = 2000;
     private int minPutTime = 100;
     private int maxPutTime = 200;
+    private boolean readyToCheckout = false;
+    private boolean readyToGoOut = false;
+
+    public synchronized void setReadyToGoOut(boolean readyToGoOut) {
+        this.readyToGoOut = readyToGoOut;
+        notifyAll();
+    }
 
     public Customer(int customerNumber){
         this.customerNumber = customerNumber;
@@ -50,6 +57,7 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
 
     @Override
     public void goOut() {
+        CustomerLine.incrementServedCustomers();
         System.out.println("Customer " + customerNumber + " has left the market");
     }
 
@@ -74,9 +82,34 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
                 System.out.println("Customer " + customerNumber + " has put "
                         + good.getName() + " into the cart");
             }
+            readyToCheckout = true;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void goToLine(){
+        synchronized (this){
+            System.out.println("Customer " + customerNumber + " made all purchases and going to the line");
+            CustomerLine.addCustomerToLine(this);
+        }
+    }
+
+    public synchronized void waitForService(){
+        while (!readyToGoOut){
+            //System.out.println("Customer " + customerNumber + " ждет выхода");
+            try {
+                wait();
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public String toString(){
+        return "Customer " + customerNumber;
     }
 
     @Override
@@ -87,6 +120,11 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
         Thread.yield();
         this.chooseGoods();
         Thread.yield();
+        goToLine();
+        waitForService();
+
+        //Thread.yield();
+
         this.goOut();
     }
 }
