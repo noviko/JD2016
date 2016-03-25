@@ -35,7 +35,8 @@ public class Main {
         ResourceBundle rb = ResourceBundle.getBundle("by.it.knyazev.JD02.less_05.lang",current);
         String s1 = rb.getString("MFN_DATE");
         String s2 = rb.getString("MFN_TIME");
-        SimpleDateFormat date = new SimpleDateFormat("yyyy.MM.dd");
+
+        SimpleDateFormat date = new SimpleDateFormat("yyyy.MMM.dd");
         SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss:S");
         System.out.println(s1+": "+date.format(new Date())+" "+s2+": "+time.format(new Date()));
         System.out.println();

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE body SYSTEM "some.dtd" >
+<body>
+	<registration el="asd">
+		<main-date>
+			<username/>
+			<e-mail/>
+			<password/>
+		</main-date>
+		<minor-date>
+			<location/>
+			<about/>
+			<links>
+				<link/>
+				<link/>
+				<link/>
+			</links>
+		</minor-date>
+		<temp-date>
+			<geo-location/>
+			<key/>
+		</temp-date>
+	</registration>
+</body>
