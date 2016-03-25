@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tours>
+    <tour type="relaxing">
+        <country>Egypt</country>
+        <cost>500</cost>
+        <transport>aircraft</transport>
+        <hotel_type>4</hotel_type>
+        <food_complex>HB</food_complex>
+    </tour>
+
+    <tour type="shopping">
+        <country>Italy</country>
+        <cost>300</cost>
+        <transport>aircraft</transport>
+        <hotel_type>3</hotel_type>
+        <food_complex>BB</food_complex>
+    </tour>
+
+    <tour type="traveling">
+        <country>Spain</country>
+        <cost>650</cost>
+        <transport>boat</transport>
+        <hotel_type>3+</hotel_type>
+        <food_complex>ALL</food_complex>
+    </tour>
+</tours>
