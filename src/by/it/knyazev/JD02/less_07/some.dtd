@@ -1,0 +1,17 @@
+<!ELEMENT body (registration)+>
+        <!ELEMENT registration (main-date, minor-date, temp-date)>
+        <!ATTLIST registration
+                el ID #REQUIRED
+                >
+        <!ELEMENT main-date (username, e-mail, password)>
+        <!ELEMENT username (#PCDATA)>
+        <!ELEMENT e-mail (#PCDATA)>
+        <!ELEMENT password (#PCDATA)>
+        <!ELEMENT minor-date (location, about, links)>
+        <!ELEMENT location (#PCDATA)>
+        <!ELEMENT about (#PCDATA)>
+        <!ELEMENT links (link,link,link)>
+        <!ELEMENT link (#PCDATA)>
+        <!ELEMENT temp-date (geo-location, key)>
+        <!ELEMENT geo-location (#PCDATA)>
+        <!ELEMENT key (#PCDATA)>
