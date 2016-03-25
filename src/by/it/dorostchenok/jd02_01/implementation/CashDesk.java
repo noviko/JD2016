@@ -4,11 +4,12 @@ import by.it.dorostchenok.jd02_01.utils.Helper;
 
 public class CashDesk implements Runnable{
 
-    private String cashDeskName = "";
+    private int cashDeskName;
 
-    public CashDesk(String name){
+    public CashDesk(int name){
         this.cashDeskName = name;
-        System.out.println("Cash Desk #" + name + " is opened");
+        CustomerLine.incrementCashDeskcount();
+        System.out.println("Cash Desk #" + cashDeskName + " is opened");
     }
 
     private Customer getCustomerFromLine(){
@@ -18,7 +19,7 @@ public class CashDesk implements Runnable{
     private void serveCustomer(Customer customer){
         try {
             System.out.println("Cash Desk " + cashDeskName + " is serving customer " + customer.toString());
-            Thread.sleep(Helper.getRandomIntegerInRange(2000, 5000));
+            Thread.sleep(Helper.getRandomIntegerInRange(10000, 11000));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -28,6 +29,15 @@ public class CashDesk implements Runnable{
     public void run() {
         synchronized (this) {
             while (!CustomerLine.closeTheMarket()) {
+                int customerInLine = CustomerLine.getCustomerLineSize();
+                int openedCashDesksCount = CustomerLine.getCashDeskcount();
+                if (customerInLine != 0 && openedCashDesksCount > 2){
+                    if (customerInLine - openedCashDesksCount * 5 + 5 < 0){
+                        CustomerLine.decrementCashDeskcount();
+                        System.out.println("Cash Desk #" + cashDeskName + " is closed");
+                        return;
+                    }
+                }
                 Customer customer = getCustomerFromLine();
                 if (customer != null) {
                     serveCustomer(customer);

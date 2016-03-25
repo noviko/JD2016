@@ -6,6 +6,21 @@ public class CustomerLine {
     public static int customersToServe = 100;
     private static int customerServed = 0;
     private static final ConcurrentLinkedQueue<Customer> customerLine = new ConcurrentLinkedQueue();
+    private static int cashDeskcount = 0;
+
+    public static synchronized void incrementCashDeskcount(){
+        cashDeskcount++;
+    }
+
+    public static synchronized void decrementCashDeskcount(){
+        cashDeskcount--;
+    }
+
+    public static synchronized int getCashDeskcount(){
+        return cashDeskcount;
+    }
+
+
     public static boolean closeTheMarket(){
         if (getCustomerServed() >= customersToServe){
             return true;
@@ -37,5 +52,9 @@ public class CustomerLine {
 
     public static boolean isEmpty(){
         return customerLine.isEmpty();
+    }
+
+    public static int getCustomerLineSize(){
+        return customerLine.size();
     }
 }
