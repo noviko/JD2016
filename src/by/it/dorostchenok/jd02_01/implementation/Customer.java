@@ -17,7 +17,7 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
     private boolean readyToCheckout = false;
     private boolean readyToGoOut = false;
 
-    public synchronized void setReadyToGoOut(boolean readyToGoOut) {
+    synchronized void setReadyToGoOut(boolean readyToGoOut) {
         this.readyToGoOut = readyToGoOut;
         notifyAll();
     }
@@ -34,6 +34,10 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
         this.minChooseTime *= 1.5;
         this.minPutTime *= 1.5;
         this.maxPutTime *= 1.5;
+    }
+
+    public Cart getCart(){
+        return this.cart;
     }
 
     @Override
@@ -57,7 +61,7 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
 
     @Override
     public void goOut() {
-        CustomerLine.incrementServedCustomers();
+        Market.incrementServedCustomers();
         System.out.println("Customer " + customerNumber + " has left the market");
     }
 
@@ -88,14 +92,14 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
         }
     }
 
-    public void goToLine(){
+    private void goToLine(){
         synchronized (this){
             System.out.println("Customer " + customerNumber + " made all purchases and going to the line");
-            CustomerLine.addCustomerToLine(this);
+            Market.addCustomerToLine(this);
         }
     }
 
-    public synchronized void waitForService(){
+    private synchronized void waitForService(){
         while (!readyToGoOut){
             //System.out.println("Customer " + customerNumber + " ждет выхода");
             try {
@@ -122,8 +126,6 @@ public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
         Thread.yield();
         goToLine();
         waitForService();
-
-        //Thread.yield();
 
         this.goOut();
     }

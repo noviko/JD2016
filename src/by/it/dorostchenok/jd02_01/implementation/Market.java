@@ -2,11 +2,21 @@ package by.it.dorostchenok.jd02_01.implementation;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class CustomerLine {
-    public static int customersToServe = 100;
+public class Market {
+    public final static int customersToServe = 100;
     private static int customerServed = 0;
-    private static final ConcurrentLinkedQueue<Customer> customerLine = new ConcurrentLinkedQueue();
     private static int cashDeskcount = 0;
+    private static final ConcurrentLinkedQueue<Customer> customerLine = new ConcurrentLinkedQueue();
+
+    private static int revenue = 0;
+
+    public static synchronized int getRevenue() {
+        return revenue;
+    }
+
+    public static synchronized void addRevenue(int amount) {
+        revenue += amount;
+    }
 
     public static synchronized void incrementCashDeskcount(){
         cashDeskcount++;
@@ -23,6 +33,7 @@ public class CustomerLine {
 
     public static boolean closeTheMarket(){
         if (getCustomerServed() >= customersToServe){
+            System.out.println("\nMarket is closed! Total revenue: " + Market.getRevenue());
             return true;
         } else {
             return false;

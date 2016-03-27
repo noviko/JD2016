@@ -8,18 +8,28 @@ public class CashDesk implements Runnable{
 
     public CashDesk(int name){
         this.cashDeskName = name;
-        CustomerLine.incrementCashDeskcount();
+        Market.incrementCashDeskcount();
         System.out.println("Cash Desk #" + cashDeskName + " is opened");
     }
 
     private Customer getCustomerFromLine(){
-        return CustomerLine.getCustomerFromLine();
+        return Market.getCustomerFromLine();
     }
 
     private void serveCustomer(Customer customer){
         try {
-            System.out.println("Cash Desk " + cashDeskName + " is serving customer " + customer.toString());
-            Thread.sleep(Helper.getRandomIntegerInRange(10000, 11000));
+            System.out.println("Cash Desk " + cashDeskName + " is serving customer " + customer);
+            Thread.sleep(Helper.getRandomIntegerInRange(2000, 5000));
+
+            System.out.println(customer + " bought the the following:");
+            int totalAmount = 0;
+            for (Good g : customer.getCart().getAllGoods()){
+                System.out.println(g.getName() + " by price " + g.getPrice());
+                totalAmount += g.getPrice();
+            }
+            Market.addRevenue(totalAmount);
+            System.out.println("Total amount of " + customer + ": " + totalAmount);
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -28,12 +38,12 @@ public class CashDesk implements Runnable{
     @Override
     public void run() {
         synchronized (this) {
-            while (!CustomerLine.closeTheMarket()) {
-                int customerInLine = CustomerLine.getCustomerLineSize();
-                int openedCashDesksCount = CustomerLine.getCashDeskcount();
-                if (customerInLine != 0 && openedCashDesksCount > 2){
-                    if (customerInLine - openedCashDesksCount * 5 + 5 < 0){
-                        CustomerLine.decrementCashDeskcount();
+            while (!Market.closeTheMarket()) {
+                int customerInLine = Market.getCustomerLineSize();
+                int openedCashDesksCount = Market.getCashDeskcount();
+                if (openedCashDesksCount > 1){
+                    if (customerInLine / openedCashDesksCount < 5 ){
+                        Market.decrementCashDeskcount();
                         System.out.println("Cash Desk #" + cashDeskName + " is closed");
                         return;
                     }
