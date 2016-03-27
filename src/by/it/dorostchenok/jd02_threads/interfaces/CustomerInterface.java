@@ -1,4 +1,4 @@
-package by.it.dorostchenok.jd02_01.interfaces;
+package by.it.dorostchenok.jd02_threads.interfaces;
 
 public interface CustomerInterface {
     void enterToMarket();

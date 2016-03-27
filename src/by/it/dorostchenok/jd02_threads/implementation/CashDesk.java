@@ -1,6 +1,6 @@
-package by.it.dorostchenok.jd02_01.implementation;
+package by.it.dorostchenok.jd02_threads.implementation;
 
-import by.it.dorostchenok.jd02_01.utils.Helper;
+import by.it.dorostchenok.jd02_threads.utils.Helper;
 
 public class CashDesk implements Runnable{
 

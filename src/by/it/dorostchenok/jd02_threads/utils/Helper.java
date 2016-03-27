@@ -1,4 +1,4 @@
-package by.it.dorostchenok.jd02_01.utils;
+package by.it.dorostchenok.jd02_threads.utils;
 
 import java.util.Random;
 

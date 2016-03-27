@@ -1,7 +1,6 @@
-package by.it.dorostchenok.jd02_01.implementation;
+package by.it.dorostchenok.jd02_threads.implementation;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Good {

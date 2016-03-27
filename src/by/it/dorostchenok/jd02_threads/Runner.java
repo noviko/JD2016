@@ -1,9 +1,9 @@
-package by.it.dorostchenok.jd02_01;
+package by.it.dorostchenok.jd02_threads;
 
-import by.it.dorostchenok.jd02_01.implementation.CashDesk;
-import by.it.dorostchenok.jd02_01.implementation.Customer;
-import by.it.dorostchenok.jd02_01.implementation.Market;
-import by.it.dorostchenok.jd02_01.utils.Helper;
+import by.it.dorostchenok.jd02_threads.implementation.CashDesk;
+import by.it.dorostchenok.jd02_threads.implementation.Customer;
+import by.it.dorostchenok.jd02_threads.implementation.Market;
+import by.it.dorostchenok.jd02_threads.utils.Helper;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

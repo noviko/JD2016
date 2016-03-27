@@ -1,8 +1,8 @@
-package by.it.dorostchenok.jd02_01.implementation;
+package by.it.dorostchenok.jd02_threads.implementation;
 
-import by.it.dorostchenok.jd02_01.interfaces.CustomerInterface;
-import by.it.dorostchenok.jd02_01.interfaces.UseShoppingCart;
-import by.it.dorostchenok.jd02_01.utils.Helper;
+import by.it.dorostchenok.jd02_threads.interfaces.CustomerInterface;
+import by.it.dorostchenok.jd02_threads.interfaces.UseShoppingCart;
+import by.it.dorostchenok.jd02_threads.utils.Helper;
 import java.util.concurrent.TimeUnit;
 
 public class Customer implements Runnable, CustomerInterface, UseShoppingCart {
