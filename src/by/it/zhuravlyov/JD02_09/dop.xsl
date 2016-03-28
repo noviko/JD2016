@@ -10,7 +10,6 @@
                 <td>fuel</td>
                 <td>year</td>
                 <td>mileage</td>
-
                 <td>Transmission</td>
             </tr>
             <xsl:apply-templates/>
@@ -36,8 +35,7 @@
     <xsl:template match="/cars/auto/mileage">
         <td><xsl:apply-templates/></td>
     </xsl:template>
-
-
+    
 <xsl:template match="/cars/auto/Transmission">
 <td><xsl:apply-templates/></td>
 </xsl:template>
