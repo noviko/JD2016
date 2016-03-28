@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT tours (tour+)>
+<!ELEMENT tour (country, cost, transport, hotel_type, food_complex)>
+<!ATTLIST tour
+        type (relaxing|traveling|shopping) #REQUIRED>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT cost (#PCDATA)>
+<!ELEMENT transport (#PCDATA)>
+<!ELEMENT hotel_type (#PCDATA)>
+<!ELEMENT food_complex (#PCDATA)>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.it-academy.by/xml/tours"
+        xmlns:tns="http://www.it-academy.by/xml/tours"
+        elementFormDefault="qualified">
+    <element name="tours">
+        <complexType>
+            <sequence>
+                <element name="tour"
+                         type="tns:Tour"
+                         minOccurs="1"
+                         maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Tour">
+        <sequence>
+            <element name="country" type="string"/>
+            <element name="cost" type="positiveInteger"/>
+            <element name="transport" type="string"/>
+            <element name="hotel_type" type="string"/>
+            <element name="food_complex" type="string"/>
+        </sequence>
+        <attribute name="type" use="optional" default="relaxing">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="relaxing"/>
+                    <enumeration value="traveling"/>
+                    <enumeration value="shopping"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+</schema>
