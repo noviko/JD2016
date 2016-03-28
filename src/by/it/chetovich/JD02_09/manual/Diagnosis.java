@@ -109,5 +109,9 @@ public class Diagnosis {
         public void setDosage(String dosage) {
             this.dosage = dosage;
         }
+
+        public String toString (){
+            return "\nDrugs: "+name+", dosage "+dosage;
+        }
     }
 }
