@@ -1,6 +1,6 @@
 package by.it.predkel.MatLab;
 
-import by.it.predkel.MatLab.OtherClasses.RunnerObj;
+import by.it.predkel.MatLab.Utils.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class Main{
     }
 
     public static void main (String [] args) throws IOException {
-        try {
+        /*try {
             System.out.println("\nпроверка операций со скалярами");
             one(new FloatVar("1").add(new FloatVar("2")));
             one(new FloatVar("9").sub(new FloatVar("7")));
@@ -49,20 +49,43 @@ public class Main{
             one(new MatrixVar(mat).sub(new MatrixVar(vec)));
             one(new MatrixVar(mat).mul(new MatrixVar(vec)));
             one(new MatrixVar(mat).div(new MatrixVar(vec)));
+*/          MyLogger log=MyLogger.GetLogger();
 
+        try {
+            TextBuilder report=new TextBuilder();
+            report.createHeader();
+            report.createTime();
             InputStreamReader inputStreamReader = new InputStreamReader(System.in);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String rLine = bufferedReader.readLine();
+            String rLine = "";
+            System.out.println("Введите выражение. Все кроме скобок через пробел. " +
+                    "Введите 'print' если хотите вывести введенные вами ранее переменные. " +
+                    "Введите 'end', если хотите выйти");
+            do {
+                rLine = bufferedReader.readLine();
+                report.createOperation(rLine);
+                if (rLine.equals("print")) {
+                    CalculationClass.sortvar();
+                } else {
+                    //CalculationClass.input(rLine);
+                    StringBuilder result=Recursion.realRecurs(new StringBuilder(rLine));
+                    System.out.println(result);
+                    report.createResult(result.toString());
+                }
+            } while (!rLine.equals("end"));
             bufferedReader.close();
+            report.createTime();
+            report.getText();
+        }catch (NullPointerException e){
+            log.write(e);
+        }
 
-            RunnerObj myMiniObj=new RunnerObj();
-            myMiniObj.input(rLine);
-            myMiniObj.sortvar();
-
+/*
         }catch  (IOException | IllegalArgumentException e){
             System.out.println("Некорректный ввод данных");
         }catch (ArithmeticException e){
             System.out.println("Деление на ноль!");
         }
+        */
     }
 }
