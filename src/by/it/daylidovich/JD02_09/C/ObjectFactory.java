@@ -6,7 +6,7 @@
 //
 
 
-package by.it.daylidovich.jd02_09.c;
+package by.it.daylidovich.JD02_09.C;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
