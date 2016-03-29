@@ -1,0 +1,4 @@
+Tue Mar 29 01:09:30 MSK 2016: [DEBUG] : Starting program!
+Tue Mar 29 01:09:30 MSK 2016: [INFO] : Log message
+Tue Mar 29 01:09:30 MSK 2016: [ERROR] : Could not open file
+Tue Mar 29 01:09:30 MSK 2016: [DEBUG] : Exiting..
