@@ -2,6 +2,7 @@ package by.it.telushko.jd_02_08;
 
 
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
@@ -20,7 +21,14 @@ public class StAX {
                 int type=reader.next();
                 switch (type){
                     case XMLStreamConstants.START_ELEMENT:{
-                        System.out.println(tab+"["+reader.getLocalName()+"]");
+                        System.out.print(tab+"["+reader.getLocalName());
+                        for(int i = 0, n = reader.getAttributeCount(); i < n; ++i) {
+                            QName name = reader.getAttributeName(i);
+                            String value = reader.getAttributeValue(i);
+                            System.out.print(" "+name + "=" + value);
+                        }
+
+                        System.out.println("]");
                         tab=tab+"\t";
                         break;
                     }
