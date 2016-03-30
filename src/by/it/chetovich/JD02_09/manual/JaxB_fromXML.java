@@ -1,6 +1,8 @@
 package by.it.chetovich.JD02_09.manual;
 
-import by.it.akhmelev.JD02_09.manual.Students;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -14,19 +16,18 @@ import java.io.FileReader;
 public class JaxB_fromXML {
 
     public static void main(String[ ] args) {
-        try {
 
-            JAXBContext jc = JAXBContext.newInstance(Hospital.class);
-            Unmarshaller u = jc.createUnmarshaller();
-            FileReader reader = new FileReader(System.getProperty("user.dir")+"/src/by/it/chetovich/JD02_09/manual/xml_01.xml");
-            System.out.println("XML-файл прочитан:");
-            Hospital hospital = (Hospital) u.unmarshal(reader);
+            Hospital hospital = GetJAXB_Hospital.getHospital();
             System.out.println(hospital);
 
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+            /*Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
+            //маршаллизация
+            String json = gson.toJson(hospital);
+            System.out.print(json);
+            //демаршаллизация
+//            Dev dev2=gson.fromJson(json, Dev.class);
+//            System.out.print("\n\ndev2=" + dev2.toString());*/
+
+
     }
 }

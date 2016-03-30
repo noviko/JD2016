@@ -1,1 +1,35 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><hospital><diagnoses><diagnosis id="flu"><name>influenza</name><drugs><name>paracetamol</name><dosage>1pill3times</dosage></drugs><recoveryTime>7</recoveryTime></diagnosis><diagnosis id="angina"><name>angina</name><drugs><name>arpetol</name><dosage>2pills3times</dosage></drugs><recoveryTime>5</recoveryTime></diagnosis></diagnoses><prescribings><prescribing id="massage" executor="100"><type>employee</type><price>physiotherapy</price></prescribing><prescribing id="quartz" executor="50"><type>employee</type><price>physiotherapy</price></prescribing><prescribing id="injection" executor="80"><type>patient</type><price>medication</price></prescribing></prescribings></hospital>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<hospital>
+    <diagnoses>
+        <diagnosis id="flu">
+            <name>influenza</name>
+            <drugs>
+                <name>paracetamol</name>
+                <dosage>1pill3times</dosage>
+            </drugs>
+            <recoveryTime>7</recoveryTime>
+        </diagnosis>
+        <diagnosis id="angina">
+            <name>angina</name>
+            <drugs>
+                <name>arpetol</name>
+                <dosage>2pills3times</dosage>
+            </drugs>
+            <recoveryTime>5</recoveryTime>
+        </diagnosis>
+    </diagnoses>
+    <prescribings>
+        <prescribing id="massage" executor="100">
+            <type>employee</type>
+            <price>physiotherapy</price>
+        </prescribing>
+        <prescribing id="quartz" executor="50">
+            <type>employee</type>
+            <price>physiotherapy</price>
+        </prescribing>
+        <prescribing id="injection" executor="80">
+            <type>patient</type>
+            <price>medication</price>
+        </prescribing>
+    </prescribings>
+</hospital>

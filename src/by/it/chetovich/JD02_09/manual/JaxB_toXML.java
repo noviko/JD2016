@@ -17,7 +17,9 @@ public class JaxB_toXML {
     public static void main(String[] args) {
         try {
             JAXBContext context = JAXBContext.newInstance(Hospital.class);
+
             Marshaller m = context.createMarshaller();
+
             Hospital st = new Hospital() { // анонимный класс
                 {
                     // добавление первого студента
@@ -49,6 +51,7 @@ public class JaxB_toXML {
                     this.setPrescribings(prescribings);
                 }
             };
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
             m.marshal(st, new FileOutputStream(System.getProperty("user.dir")+"/src/by/it/chetovich/JD02_09/manual/xml_01.xml"));
             System.out.println("XML-файл создан");
             m.marshal(st, System.out); // копия на консоль

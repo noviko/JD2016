@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 
-<hospital>
+<hospital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://www.it-academy.by/xml/hospital"
+          xsi:schemaLocation="http://www.it-academy.by/xml/hospital">
     <diagnoses>
         <diagnosis id="Flu">
             <nameD>influenza</nameD>
