@@ -1,6 +1,7 @@
-package by.it.Baranova.JD02.JD02_09.manual;
+package by.it.Baranova.JD02.JD02_10.C;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
 @XmlRootElement

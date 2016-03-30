@@ -6,22 +6,14 @@
     <element name="project">
         <complexType>
             <sequence>
-                <element name="rooms"
-                         type="tns:Rooms"
+                <element name="room"
+                         type="tns:Room"
                          minOccurs="1"
-                         maxOccurs="1"/>
+                         maxOccurs="unbounded"/>
             </sequence>
         </complexType>
     </element>
 
-    <complexType name="Rooms">
-            <sequence>
-                <element name="room"
-                         type="tns:Room"
-                         minOccurs="2"
-                         maxOccurs="unbounded"/>
-            </sequence>
-    </complexType>
     <complexType name="Room">
         <sequence>
             <element name="room_number" type="string"/>

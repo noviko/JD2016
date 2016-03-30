@@ -2,7 +2,6 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://generate.JD02_09.JD02.Baranova.it.by/"
          xsi:schemaLocation="http://generate.JD02_09.JD02.Baranova.it.by/">
-    <rooms>
         <room>
             <room_number>R1</room_number>
             <people_quantity>3</people_quantity>
@@ -41,7 +40,6 @@
             <price>80</price>
             <air_conditioner>yes</air_conditioner>
         </room>
-    </rooms>
 </project>
 
 
