@@ -1,4 +1,4 @@
-package by.it.telushko.jd_02_08;
+package by.it.telushko.jd02_08;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
