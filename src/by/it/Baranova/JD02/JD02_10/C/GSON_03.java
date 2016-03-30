@@ -19,6 +19,7 @@ public class GSON_03 {
             JAXBContext jc=JAXBContext.newInstance(Project.class);
             Unmarshaller u=jc.createUnmarshaller();
             Marshaller m=jc.createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
 
             FileReader reader=new FileReader("src/by/it/Baranova/JD02/JD02_10/C/Project.xml");
             System.out.println("XML-файл прочитан:");
