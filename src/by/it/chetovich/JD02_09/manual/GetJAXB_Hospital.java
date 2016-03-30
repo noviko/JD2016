@@ -7,13 +7,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
- * Created by Yultos_ on 30.03.2016.
+ * GetJAXB_Hospital
  */
 public class GetJAXB_Hospital {
 
     public static Hospital getHospital()  {
 
-        JAXBContext jc = null;
+        JAXBContext jc;
         try {
             jc = JAXBContext.newInstance(Hospital.class);
             Unmarshaller u = jc.createUnmarshaller();

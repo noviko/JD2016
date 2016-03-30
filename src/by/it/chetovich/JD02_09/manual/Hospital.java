@@ -15,9 +15,9 @@ public class Hospital {
     private Diagnoses diagnoses;
     @XmlElement(name="prescribings")
     private Prescribings prescribings;
-    public Hospital() {
+    /*public Hospital() {
         super();
-    }
+    }*/
 
     public void setDiagnoses(Diagnoses diagnoses) {
         this.diagnoses = diagnoses;

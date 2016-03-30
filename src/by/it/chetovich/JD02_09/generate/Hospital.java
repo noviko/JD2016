@@ -96,4 +96,12 @@ public class Hospital {
         this.prescribings = value;
     }
 
+
+    @Override
+    public String toString() {
+        return "Hospital{\n" +
+                "diagnoses=" + diagnoses +
+                ", \nprescribings=" + prescribings +
+                '}';
+    }
 }

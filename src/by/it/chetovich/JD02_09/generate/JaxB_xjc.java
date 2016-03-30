@@ -1,5 +1,4 @@
 package by.it.chetovich.JD02_09.generate;
-import by.it.chetovich.JD02_09.manual.Hospital;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

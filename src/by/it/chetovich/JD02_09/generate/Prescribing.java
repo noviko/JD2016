@@ -103,4 +103,11 @@ public class Prescribing {
         this.price = value;
     }
 
+    @Override
+    public String toString() {
+        return "Prescribing{" +
+                "type='" + type + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

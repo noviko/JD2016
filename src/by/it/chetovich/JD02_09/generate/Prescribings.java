@@ -144,4 +144,12 @@ public class Prescribings {
         this.executor = value;
     }
 
+    @Override
+    public String toString() {
+        return "Prescribings{\n" +
+                "prescribing=" + prescribing +
+                ", id='" + id + '\'' +
+                ", executor='" + executor + '\'' +
+                '}'+"\n";
+    }
 }

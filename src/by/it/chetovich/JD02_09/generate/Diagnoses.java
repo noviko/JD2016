@@ -77,7 +77,7 @@ public class Diagnoses {
      */
     public List<Diagnosis> getDiagnosis() {
         if (diagnosis == null) {
-            diagnosis = new ArrayList<Diagnosis>();
+            diagnosis = new ArrayList<>();
         }
         return this.diagnosis;
     }
@@ -106,4 +106,11 @@ public class Diagnoses {
         this.id = value;
     }
 
+    @Override
+    public String toString() {
+        return "Diagnoses{\n" +
+                "diagnosis=" + diagnosis +
+                ", id='" + id + '\'' +
+                '}'+"\n";
+    }
 }

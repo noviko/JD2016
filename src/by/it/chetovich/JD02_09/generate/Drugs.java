@@ -94,4 +94,11 @@ public class Drugs {
         this.dosage = value;
     }
 
+    @Override
+    public String toString() {
+        return "Drugs{" +
+                "name='" + name + '\'' +
+                ", dosage='" + dosage + '\'' +
+                '}';
+    }
 }

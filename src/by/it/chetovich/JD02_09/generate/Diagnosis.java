@@ -123,4 +123,12 @@ public class Diagnosis {
         this.recoveryTime = value;
     }
 
+    @Override
+    public String toString() {
+        return "Diagnosis{" +
+                "nameD='" + nameD + '\'' +
+                ", drugs=" + drugs +
+                ", recoveryTime=" + recoveryTime +
+                '}';
+    }
 }

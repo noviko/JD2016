@@ -20,14 +20,6 @@ public class JaxB_fromXML {
             Hospital hospital = GetJAXB_Hospital.getHospital();
             System.out.println(hospital);
 
-            /*Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
-            //маршаллизация
-            String json = gson.toJson(hospital);
-            System.out.print(json);
-            //демаршаллизация
-//            Dev dev2=gson.fromJson(json, Dev.class);
-//            System.out.print("\n\ndev2=" + dev2.toString());*/
-
 
     }
 }
