@@ -2,8 +2,8 @@
 
 
 <hospital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xmlns="http://www.it-academy.by/xml/hospital"
-          xsi:schemaLocation="http://www.it-academy.by/xml/hospital">
+          xmlns="http://generate.JD02_09.chetovich.it.by/"
+          xsi:schemaLocation="http://generate.JD02_09.chetovich.it.by/">
     <diagnoses>
         <diagnosis id="Flu">
             <nameD>influenza</nameD>

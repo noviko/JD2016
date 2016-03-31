@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="http://www.it-academy.by/xml/hospital"
-        xmlns:tns="http://www.it-academy.by/xml/hospital"
+        targetNamespace="http://generate.JD02_09.chetovich.it.by/"
+        xmlns:tns="http://generate.JD02_09.chetovich.it.by/"
         elementFormDefault="qualified">
     <element name="hospital">
         <complexType>
@@ -95,13 +95,13 @@
     <complexType name="Prescribing">
         <sequence>
             <element name="type">
-                    <simpleType>
-                        <restriction base="string">
-                            <enumeration value="physiotherapy"/>
-                            <enumeration value="medication"/>
-                            <enumeration value="psychotherapy"/>
-                        </restriction>
-                    </simpleType>
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="physiotherapy"/>
+                        <enumeration value="medication"/>
+                        <enumeration value="psychotherapy"/>
+                    </restriction>
+                </simpleType>
             </element>
             <element name="price" type="integer"/>
         </sequence>
@@ -115,4 +115,4 @@
             </simpleType>
         </attribute>
     </complexType>
-    </schema>
+</schema>
