@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://generate.JD02_09.JD02.Baranova.it.by/"
+        xmlns:tns="http://generate.JD02_09.JD02.Baranova.it.by/"
+        elementFormDefault="qualified">
+    <element name="project">
+        <complexType>
+            <sequence>
+                <element name="room"
+                         type="tns:Room"
+                         minOccurs="1"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Room">
+        <sequence>
+            <element name="room_number" type="string"/>
+            <element name="people_quantity" type="positiveInteger"/>
+            <element name="bed_size" type="tns:Bed_size"/>
+            <element name="seaview" type="string"/>
+            <element name="floor" type="positiveInteger"/>
+            <element name="price" type="positiveInteger"/>
+            <element name="air_conditioner" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="Bed_size">
+        <sequence>
+            <element name="first_Bed_size" type="tns:First_Bed_size"/>
+            <element name="second_Bed_size" type="tns:Second_Bed_size"/>
+        </sequence>
+    </complexType>
+    <simpleType name="First_Bed_size">
+        <restriction base="string">
+            <enumeration value="twin"/>
+            <enumeration value="double"/>
+            <enumeration value="queen"/>
+            <enumeration value="king"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="Second_Bed_size">
+        <restriction base="string">
+            <enumeration value="twin"/>
+            <enumeration value="double"/>
+            <enumeration value="queen"/>
+            <enumeration value="king"/>
+            <enumeration value="none"/>
+        </restriction>
+    </simpleType>
+</schema>
