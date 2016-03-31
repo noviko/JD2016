@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalog.xsd">
-  <section name="notebooks">
-    <product name="Macbook Air 13" price="1000">
-      <description>Apple MacBook Air 13" 2015 MJVE2D/A 1.6GHz, 4GB Ram, 128GB SSD, OS X. Intel Core i5 (5. Generation) 5250U 2x 1,6 GHz </description>
-    </product>
-    <product name="Lenovo ThinkPad X260 " price="1500">
-      <description>Intel Core i3-6100U Processor (3MB cache, 2.30GHz) 12.5 HD Non-Touch 4GB DDR4-2133 SODIMM</description>
-    </product>
-    <product name="Asus ZenBook UX305FA" price="800">
-      <description>Asus Zenbook UX305FA-FB006H 33,7 cm (13,3 Zoll IPS QHD+) Notebook (Intel Core-m 5Y10, 8GB RAM, 128GB SSD, Intel HD, Win 8.1)</description>
-    </product>
-  </section>
-  <section name="phones">
-    <product name="iPhone 6s" price="800">
-      <description>Apple iPhone 6s smartphone. Announced 2015, September. Features 3G, 4.7″ LED-backlit IPS LCD display, 12 MP camera, Wi-Fi, GPS, Bluetooth.</description>
-    </product>
-    <product name="Samsung Galaxy S7" price="650">
-      <description>Samsung Galaxy S7 Android smartphone. Announced 2016, February. Features 3G, 5.1″ Super AMOLED capacitive touchscreen, 12 MP camera, Wi-Fi, GPS</description>
-    </product>
-  </section>
-  <section name="tablets">
-    <product name="Asus Google Nexus 7" price="350">
-      <description>Asus Google Nexus 7 Android tablet. Announced 2012, June. Features 7.0″ LED-backlit IPS LCD capacitive touchscreen, 1.2 MP camera, Wi-Fi, GPS</description>
-    </product>
-  </section>
+    <section name="notebooks">
+        <product name="Macbook Air 13" price="1000">
+            <description>Apple MacBook Air 13" 2015 MJVE2D/A 1.6GHz, 4GB Ram, 128GB SSD, OS X. Intel Core i5 (5. Generation) 5250U 2x 1,6 GHz</description>
+        </product>
+        <product name="Lenovo ThinkPad X260 " price="1500">
+            <description>Intel Core i3-6100U Processor (3MB cache, 2.30GHz) 12.5 HD Non-Touch 4GB DDR4-2133 SODIMM</description>
+        </product>
+        <product name="Asus ZenBook UX305FA" price="800">
+            <description>Asus Zenbook UX305FA-FB006H 33,7 cm (13,3 Zoll IPS QHD+) Notebook (Intel Core-m 5Y10, 8GB RAM, 128GB SSD, Intel HD, Win 8.1)</description>
+        </product>
+    </section>
+    <section name="phones">
+        <product name="iPhone 6s" price="800">
+            <description>Apple iPhone 6s smartphone. Announced 2015, September. Features 3G, 4.7″ LED-backlit IPS LCD display, 12 MP camera, Wi-Fi, GPS, Bluetooth.</description>
+        </product>
+        <product name="Samsung Galaxy S7" price="650">
+            <description>Samsung Galaxy S7 Android smartphone. Announced 2016, February. Features 3G, 5.1″ Super AMOLED capacitive touchscreen, 12 MP camera, Wi-Fi, GPS</description>
+        </product>
+    </section>
+    <section name="tablets">
+        <product name="Asus Google Nexus 7" price="350">
+            <description>Asus Google Nexus 7 Android tablet. Announced 2012, June. Features 7.0″ LED-backlit IPS LCD capacitive touchscreen, 1.2 MP camera, Wi-Fi, GPS</description>
+        </product>
+    </section>
 </catalog>
