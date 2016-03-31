@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="123" xsi:noNamespaceSchemaLocation="order.xsd">
+<order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="123" xsi:noNamespaceSchemaLocation="schema/order.xsd">
     <customer id="434" />
     <products>
         <product name="iPhone 6s" price="800">

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalog.xsd">
+<catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/catalog.xsd">
     <section name="notebooks">
         <product name="Macbook Air 13" price="1000">
             <description>Apple MacBook Air 13" 2015 MJVE2D/A 1.6GHz, 4GB Ram, 128GB SSD, OS X. Intel Core i5 (5. Generation) 5250U 2x 1,6 GHz</description>
