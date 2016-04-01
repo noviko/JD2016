@@ -1,4 +1,4 @@
-package by.it.telushko.jd02_09;
+package by.it.telushko.jd02_09.xsl;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
