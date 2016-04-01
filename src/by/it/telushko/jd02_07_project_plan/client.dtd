@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT clients (client)+>
+<!ELEMENT client (name,vehicle,email,phone)>
+<!ATTLIST client login ID #REQUIRED password ID #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT vehicle (brand,model,year)>
+<!ATTLIST vehicle type motorcycle|car>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT brand (#PCDATA)>
+<!ELEMENT model (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
