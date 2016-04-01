@@ -3,14 +3,14 @@ package by.it.zhuravlyov.JD02_10;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class write {
+public class Write2 {
     private String brand;
     private Integer year;
     private String fuel;
     private String Transmission;
     private Integer mileage;
 
-    public write() {};
+    public Write2() {};
     public String getBrand() {return brand;}
     public Integer getYear() {return year;}
     public String getFuel() {return fuel;}
@@ -25,16 +25,16 @@ public class write {
 
     @Override
     public String toString() {
-        return "write{" +
-                "brand='" + brand + '\'' +
-                ", year=" + year +
-                ", fuel='" + fuel + '\'' +
-                ", Transmission='" + Transmission + '\'' +
-                ", mileage=" + mileage +
+        return "Write{" +
+                "\n brand='" + brand + '\'' +
+                ",\n year=" + year +
+                ",\n fuel='" + fuel + '\'' +
+                ",\n Transmission='" + Transmission + '\'' +
+                ", \n  mileage=" + mileage +
                 '}';
     }
 
-    public write(String brand,Integer year,String fuel,String Transmission,Integer mileage){
+    public Write2(String brand, Integer year, String fuel, String Transmission, Integer mileage){
         this.brand = brand;
         this.year= year;
         this.fuel = fuel;
