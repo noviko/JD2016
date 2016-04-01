@@ -3,14 +3,14 @@ package by.it.zhuravlyov.JD02_10;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Write2 {
+public class Write {
     private String brand;
     private Integer year;
     private String fuel;
     private String Transmission;
     private Integer mileage;
 
-    public Write2() {};
+    public Write() {};
     public String getBrand() {return brand;}
     public Integer getYear() {return year;}
     public String getFuel() {return fuel;}
@@ -34,7 +34,7 @@ public class Write2 {
                 '}';
     }
 
-    public Write2(String brand, Integer year, String fuel, String Transmission, Integer mileage){
+    public Write(String brand, Integer year, String fuel, String Transmission, Integer mileage){
         this.brand = brand;
         this.year= year;
         this.fuel = fuel;
