@@ -1,10 +1,9 @@
 package by.it.novik.JD02_10;
 
 
-import by.it.novik.JD02_09.Automatic_Generation.Flights;
+import by.it.novik.JD02_09.Automatic_Gen.Flights;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import by.it.novik.JD02_09.Flights;
 
 
 import javax.xml.bind.JAXBContext;

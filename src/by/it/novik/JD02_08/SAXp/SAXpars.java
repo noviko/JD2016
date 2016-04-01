@@ -1,4 +1,4 @@
-package by.it.novik.JD02_08.SAX;
+package by.it.novik.JD02_08.SAXp;
 
 
 import org.xml.sax.Attributes;

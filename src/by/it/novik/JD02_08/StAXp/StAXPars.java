@@ -1,4 +1,4 @@
-package by.it.novik.JD02_08.StAX;
+package by.it.novik.JD02_08.StAXp;
 
 
 import javax.xml.stream.XMLInputFactory;

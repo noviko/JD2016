@@ -1,4 +1,4 @@
-package by.it.novik.JD02_09;
+package by.it.novik.JD02_09.Automatic_Gen;
 
 
 import javax.xml.bind.JAXBContext;
@@ -13,7 +13,7 @@ public class JaxBGen {
 
             JAXBContext jc = JAXBContext.newInstance(Flights.class);
             Unmarshaller u = jc.createUnmarshaller();
-            FileReader reader = new FileReader("src/by/it/novik/JD02_09/project_plus_xsd.xml");
+            FileReader reader = new FileReader("src/by/it/novik/JD02_09/Automatic_Gen/project_plus_xsd.xml");
             System.out.println("XML-файл прочитан:");
             Flights flights = (Flights) u.unmarshal(reader);
             System.out.println(flights.toString());
