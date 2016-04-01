@@ -6,7 +6,7 @@
 //
 
 
-package by.it.novik.JD02_09;
+package by.it.novik.JD02_09.Automatic_Generation;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;

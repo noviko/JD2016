@@ -1,4 +1,4 @@
-package by.it.novik.JD02_10;
+package by.it.novik.JD02_10.A_and_B;
 
 
 import javax.xml.bind.annotation.XmlRootElement;

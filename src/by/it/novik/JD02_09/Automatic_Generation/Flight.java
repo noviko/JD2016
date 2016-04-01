@@ -6,9 +6,7 @@
 //
 
 
-package by.it.novik.JD02_09;
-
-import by.it.novik.JD02_09.Aircrew;
+package by.it.novik.JD02_09.Automatic_Generation;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,7 @@
-package by.it.novik.JD02_10;
+package by.it.novik.JD02_10.A_and_B;
 
 
+import by.it.novik.JD02_10.A_and_B.Person;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

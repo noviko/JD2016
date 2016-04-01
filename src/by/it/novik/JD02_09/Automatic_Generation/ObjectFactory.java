@@ -6,12 +6,7 @@
 //
 
 
-package by.it.novik.JD02_09;
-
-import by.it.novik.JD02_09.Aircrew;
-import by.it.novik.JD02_09.Crewman;
-import by.it.novik.JD02_09.Flight;
-import by.it.novik.JD02_09.Flights;
+package by.it.novik.JD02_09.Automatic_Generation;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -42,7 +37,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link by.it.novik.JD02_09.Flights }
+     * Create an instance of {@link by.it.novik.JD02_09.Automatic_Generation.Flights }
      * 
      */
     public Flights createFlights() {
@@ -50,7 +45,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link by.it.novik.JD02_09.Flight }
+     * Create an instance of {@link by.it.novik.JD02_09.Automatic_Generation.Flight }
      * 
      */
     public Flight createFlight() {
@@ -58,7 +53,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link by.it.novik.JD02_09.Crewman }
+     * Create an instance of {@link by.it.novik.JD02_09.Automatic_Generation.Crewman }
      * 
      */
     public Crewman createCrewman() {
@@ -66,7 +61,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link by.it.novik.JD02_09.Aircrew }
+     * Create an instance of {@link by.it.novik.JD02_09.Automatic_Generation.Aircrew }
      * 
      */
     public Aircrew createAircrew() {

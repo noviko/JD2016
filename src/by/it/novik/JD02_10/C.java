@@ -1,9 +1,10 @@
 package by.it.novik.JD02_10;
 
 
-import by.it.novik.JD02_09.Flights;
+import by.it.novik.JD02_09.Automatic_Generation.Flights;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -19,7 +20,7 @@ public class C {
 
             JAXBContext jc = JAXBContext.newInstance(Flights.class);
             Unmarshaller u = jc.createUnmarshaller();
-            FileReader reader = new FileReader("src/by/it/novik/JD02_09/project_plus_xsd.xml");
+            FileReader reader = new FileReader("src/by/it/novik/JD02_10/project_plus_xsd.xml");
             System.out.println("XML-файл прочитан:");
             Flights flights = (Flights) u.unmarshal(reader);
             Gson gs = new GsonBuilder().serializeNulls().setPrettyPrinting().create();

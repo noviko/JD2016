@@ -6,27 +6,28 @@
 //
 
 
-package by.it.novik.JD02_09;
+package by.it.novik.JD02_09.Automatic_Generation;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for aircrew complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="aircrew">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="crewman" type="{http://JD02_09.novik.it.by/}crewman" maxOccurs="unbounded"/>
+ *         &lt;element name="flight" type="{http://JD02_09.novik.it.by/}flight" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,47 +37,48 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "aircrew", propOrder = {
-    "crewman"
+@XmlType(name = "", propOrder = {
+    "flight"
 })
-public class Aircrew {
+@XmlRootElement(name = "flights")
+public class Flights {
 
     @XmlElement(required = true)
-    protected List<Crewman> crewman;
+    protected List<Flight> flight;
 
     /**
-     * Gets the value of the crewman property.
+     * Gets the value of the flight property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the crewman property.
+     * This is why there is not a <CODE>set</CODE> method for the flight property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCrewman().add(newItem);
+     *    getFlight().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Crewman }
+     * {@link Flight }
      * 
      * 
      */
-    public List<Crewman> getCrewman() {
-        if (crewman == null) {
-            crewman = new ArrayList<Crewman>();
+    public List<Flight> getFlight() {
+        if (flight == null) {
+            flight = new ArrayList<Flight>();
         }
-        return this.crewman;
+        return this.flight;
     }
 
     @Override
     public String toString() {
-        return "\nAircrew{" +
-                "\ncrewman=" + crewman +
+        return "\nFlights{" +
+                "\nflight=" + flight +
                 '}';
     }
 }

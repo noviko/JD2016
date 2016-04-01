@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://JD02_09.novik.it.by/", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package by.it.novik.JD02_09;
+package by.it.novik.JD02_09.Automatic_Generation;

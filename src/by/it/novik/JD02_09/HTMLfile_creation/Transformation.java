@@ -1,4 +1,4 @@
-package by.it.novik.JD02_09;
+package by.it.novik.JD02_09.HTMLfile_creation;
 
 
 import javax.xml.transform.Transformer;
@@ -9,7 +9,7 @@ import javax.xml.transform.stream.StreamSource;
 
 public class Transformation {
 
-    final static String way = System.getProperty("user.dir") + "/src/by/it/novik/JD02_09/";
+    final static String way = System.getProperty("user.dir") + "/src/by/it/novik/JD02_09/HTMLfile_creation/";
 
     public static void main(String[] args) {
         String filename = way + "/project.xml/";
