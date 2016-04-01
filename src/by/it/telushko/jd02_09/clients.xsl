@@ -13,6 +13,21 @@
         <tr><xsl:apply-templates/></tr>
     </xsl:template>
 
+    <xsl:template match="/clients/client/name">
+        <td><xsl:apply-templates/></td>
+    </xsl:template>
+
+    <xsl:template match="/clients/client/vehicle">
+        <td><xsl:apply-templates/></td>
+    </xsl:template>
+
+    <xsl:template match="/clients/client/email">
+        <td><xsl:apply-templates/></td>
+    </xsl:template>
+
+    <xsl:template match="/clients/client/phone">
+        <td><xsl:apply-templates/></td>
+    </xsl:template>
 
 
 </xsl:stylesheet>
