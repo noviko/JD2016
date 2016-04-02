@@ -1,0 +1,1 @@
+insert into users (name, surname, login, password, birth_date, role) values ('Ivan','Ivanov','ivanov','yultos','1990-01-05',1);
