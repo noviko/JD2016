@@ -1,0 +1,9 @@
+<!ELEMENT catalog (section+)>
+<!ELEMENT section (product+)>
+<!ATTLIST section
+          name CDATA #REQUIRED>
+<!ELEMENT product (description)>
+<!ATTLIST product
+          name CDATA #REQUIRED
+          price CDATA #REQUIRED>
+<!ELEMENT description (#PCDATA)>
