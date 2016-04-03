@@ -5,6 +5,7 @@ package by.it.knyazev.JD03.w_01;
  */
 
 import java.sql.*;
+import java.util.regex.Pattern;
 
 /**
  * Created by Mac on 02.04.16.
@@ -37,6 +38,27 @@ public class Mysql {
             conn.close();
         }catch (Exception e){
             System.out.println("MYSQL Connect close ERROR: "+e.getMessage());
+        }
+    }
+
+    public static void checkTables() throws SQLException {
+        DatabaseMetaData dbmd = conn.getMetaData();
+        ResultSet rs = dbmd.getTables(null, null, null, null);
+        if (rs.next()) {
+            System.out.println(rs.getString(3));
+            String s = rs.getString(3);
+            if (!s.contains("dle_post")){
+                CreateTable();
+            }
+        }else{
+            CreateTable();
+        }
+    }
+
+    public static void CreateTable() throws SQLException {
+        Patterns.createTfiller();
+        for (int i = 0; i < Patterns.createT.size(); i++) {
+            ExecuteUpdate(Patterns.createT.get(i));
         }
     }
 

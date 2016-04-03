@@ -44,7 +44,7 @@ public class Manager {
             title = new ArrayList<>(list);
             alt_name = new ArrayList<>(list);
 
-            System.out.println(xfields.size()+"\n"+title.size()+"\n"+alt_name.size()+"\n");
+            //System.out.println(xfields.size()+"\n"+title.size()+"\n"+alt_name.size()+"\n");
 
             formatter.xfieldsGen(xfields, folder);
             formatter.fileNumberRemover(title);
@@ -54,7 +54,7 @@ public class Manager {
             CheckForRepeat();
             requestGen();
         }
-        System.out.println(xfields.size()+"\n"+title.size()+"\n"+alt_name.size()+"\n");
+        //System.out.println(xfields.size()+"\n"+title.size()+"\n"+alt_name.size()+"\n");
     }
 
     public static void CheckForRepeat() {
@@ -86,5 +86,14 @@ public class Manager {
 
     }
 
+
+    public static void getIdCount() throws SQLException {
+        int id = 0;
+        ResultSet resSet = Mysql.statement.executeQuery("SELECT id FROM dle_post");
+        while (resSet.next()){
+            id = resSet.getInt("id");
+        }
+        System.out.println(id);
+    }
 
 }

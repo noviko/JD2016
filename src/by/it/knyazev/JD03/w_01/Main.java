@@ -13,6 +13,25 @@ import java.util.List;
 
 public class Main {
 
+    /*
+    *  Connect to DB
+    *  Check if table exist
+    *  GenDate
+    *  Check for MultiDirectoryPath
+    *  Break path|category
+    *  If multi path gen Multi threads // Проблема с генерацией id при одновоременном запросе присваивает одинаковый id (sleep can help?)
+    *
+    *  Gen float request for every pair (path:category)
+        *  GenList of files
+        *  GenList's for Request
+        *  Remove Trash from list's (invisible files , file format, Case format )
+        *  Check for repeat into alt_name( exclude repetition or links broke )
+        *  GenRequest
+        *  Send Request
+        *  Close connect
+    * */
+
+
     // https://164.132.129.100/phpmyadmin/
     public static String Mhost = "164.132.129.100:3306";
     public static String Mdb = "user12650_java";
@@ -30,6 +49,7 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         Mysql.Connect();
+        Mysql.checkTables();
         if (date.isEmpty()) DateGen();
         if (arr.length >= 2) MultiPath();
         else{
@@ -38,7 +58,9 @@ public class Main {
             String category = temp[1].trim();
             Request(category, folder);
         }
+        Manager.getIdCount();
         Mysql.CloseConnect();
+
     }
 
     public static void MultiPath() throws SQLException {
