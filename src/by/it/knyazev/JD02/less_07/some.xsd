@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="somthing.there" xmlns:tns="somthing.there" elementFormDefault="qualified">
+
+    <element name="body">
+        <complexType>
+            <sequence>
+                <element name="registration"
+                         type="tns:Registration"
+                         minOccurs="1"
+                         maxOccurs="1"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Registration">
+        <sequence>
+            <element name="main-date"
+                     type="tns:MainDate"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <element name="minor-date"
+                     type="tns:MinorDate"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+            <element name="temp-date"
+                     type="tns:TempDate"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <complexType name="MainDate">
+        <sequence>
+            <element name="username" type="string"/>
+            <element name="e-mail" type="string"/>
+            <element name="password" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="MinorDate">
+        <sequence>
+            <element name="location" type="string"/>
+            <element name="about" type="string"/>
+            <element name="links"
+                     type="tns:Link"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Link">
+        <element name="link" type="string"/>
+    </complexType>
+
+    <complexType name="TempDate">
+        <sequence>
+            <element name="geo-location" type="string"/>
+            <element name="key" type="string"/>
+        </sequence>
+    </complexType>
