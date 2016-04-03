@@ -13,6 +13,7 @@ import java.util.List;
 
 public class Main {
 
+    // https://164.132.129.100/phpmyadmin/
     public static String Mhost = "164.132.129.100:3306";
     public static String Mdb = "user12650_java";
     public static String Muser = "user12650_java";
