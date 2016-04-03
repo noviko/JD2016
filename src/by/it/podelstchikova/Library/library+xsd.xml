@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://www.it-academy.by/xml/library"
+         xsi:schemaLocation="https://www.it-academy.by/xml/library ">
+
+
+    <books>
+        <book login="IDB1">
+            <nameBook>
+                1
+            </nameBook>
+            <author>
+                1
+            </author>
+            <series>
+                1
+            </series>
+            <style>
+                1
+            </style>
+            <volumeBook>
+                1
+            </volumeBook>
+            <numberOfBook>
+                1
+            </numberOfBook>
+        </book>
+    </books>
+
+    <readers>
+        <reader login="IDR1">
+            <name>
+                1
+            </name>
+            <telephone>
+                1
+            </telephone>
+            <numberOfTheLibraryCard>
+                1
+            </numberOfTheLibraryCard>
+        </reader>
+    </readers>
+
+    <libraryCards>
+        <libraryCard login="IDLC1">
+            <readerID>
+                1
+            </readerID>
+            <dateOfCapture>
+                11.02.2016
+            </dateOfCapture>
+            <dateOfReturn>
+                1
+            </dateOfReturn>
+            <bookID>
+                1
+            </bookID>
+        </libraryCard>
+    </libraryCards>
+
+</library>

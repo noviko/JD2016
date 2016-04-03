@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!ELEMENT library (books,readers,libraryCards)+>
+
+        <!ELEMENT books (book)+>
+        <!ELEMENT book (nameBook,author,series,style,volumeBook,numberOfBook)>
+        <!ATTLIST book login ID #REQUIRED>
+
+        <!ELEMENT numberOfBook (#PCDATA)>
+        <!ELEMENT nameBook (#PCDATA)>
+        <!ELEMENT author (#PCDATA)>
+        <!ELEMENT series (#PCDATA)>
+        <!ELEMENT style (#PCDATA)>
+        <!ELEMENT volumeBook (#PCDATA)>
+
+        <!ELEMENT readers (reader)+>
+
+
+        <!ELEMENT reader (name,telephone,numberOfTheLibraryCard)>
+        <!ATTLIST reader login ID #REQUIRED>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT telephone (#PCDATA)>
+        <!ELEMENT numberOfTheLibraryCard (#PCDATA)>
+
+        <!ELEMENT libraryCards (libraryCard)+>
+
+        <!ELEMENT libraryCard (readerID,dateOfCapture,dateOfReturn,bookID)>
+        <!ELEMENT readerID (#PCDATA)>
+        <!ELEMENT bookID (#PCDATA)>
+        <!ELEMENT dateOfCapture (#PCDATA)>
+        <!ELEMENT dateOfReturn (#PCDATA)>
+        <!ATTLIST libraryCard login #REQUIRED>
