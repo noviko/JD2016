@@ -22,7 +22,7 @@ public class StAX {
         try {
             while (reader.hasNext()){
                 int nextElement = reader.next();
-                
+
                 if (nextElement == reader.START_ELEMENT){
                     StringBuilder name = new StringBuilder(reader.getName().toString());
                     for (int j = 0; j < reader.getAttributeCount(); j++){
