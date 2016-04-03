@@ -6,12 +6,13 @@
 //
 
 
-package by.it.dorostchenok.jd02_09.variant_b.generated;
+package by.it.dorostchenok.jd02_09.variant_b_c.generated;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -26,10 +27,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element ref="{}product" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="price" use="required" type="{http://www.w3.org/2001/XMLSchema}double" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -39,40 +39,42 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "description"
+    "product"
 })
-@XmlRootElement(name = "product")
-public class Product {
+@XmlRootElement(name = "section")
+public class Section {
 
-    @XmlElement(required = true)
-    protected String description;
+    protected List<Product> product;
     @XmlAttribute(name = "name", required = true)
     protected String name;
-    @XmlAttribute(name = "price", required = true)
-    protected double price;
 
     /**
-     * Gets the value of the description property.
+     * Gets the value of the product property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * Sets the value of the description property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the product property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getProduct().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Product }
+     * 
+     * 
      */
-    public void setDescription(String value) {
-        this.description = value;
+    public List<Product> getProduct() {
+        if (product == null) {
+            product = new ArrayList<Product>();
+        }
+        return this.product;
     }
 
     /**
@@ -97,22 +99,6 @@ public class Product {
      */
     public void setName(String value) {
         this.name = value;
-    }
-
-    /**
-     * Gets the value of the price property.
-     * 
-     */
-    public double getPrice() {
-        return price;
-    }
-
-    /**
-     * Sets the value of the price property.
-     * 
-     */
-    public void setPrice(double value) {
-        this.price = value;
     }
 
 }

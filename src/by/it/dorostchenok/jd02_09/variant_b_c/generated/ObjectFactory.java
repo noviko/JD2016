@@ -6,7 +6,7 @@
 //
 
 
-package by.it.dorostchenok.jd02_09.variant_b.generated;
+package by.it.dorostchenok.jd02_09.variant_b_c.generated;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

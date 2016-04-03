@@ -4,7 +4,7 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2016.04.03 at 08:38:55 PM MSK 
 //
-package by.it.dorostchenok.jd02_09.variant_b.generated;
+package by.it.dorostchenok.jd02_09.variant_b_c.generated;
 
 import java.util.ArrayList;
 import java.util.List;
