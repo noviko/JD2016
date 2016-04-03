@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE clients SYSTEM "D:\Students\Tel\JD2016\src\by\it\telushko\jd02_07_project_plan\client.dtd">
         <clients>
 
             <client login="login_1" password="pass_1">
