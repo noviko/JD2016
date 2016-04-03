@@ -4,7 +4,7 @@
         <product name="Macbook Air 13" price="1000">
             <description>Apple MacBook Air 13" 2015 MJVE2D/A 1.6GHz, 4GB Ram, 128GB SSD, OS X. Intel Core i5 (5. Generation) 5250U 2x 1,6 GHz</description>
         </product>
-        <product name="Lenovo ThinkPad X260 " price="1500">
+        <product name="Lenovo ThinkPad X260" price="1500">
             <description>Intel Core i3-6100U Processor (3MB cache, 2.30GHz) 12.5 HD Non-Touch 4GB DDR4-2133 SODIMM</description>
         </product>
         <product name="Asus ZenBook UX305FA" price="800">
