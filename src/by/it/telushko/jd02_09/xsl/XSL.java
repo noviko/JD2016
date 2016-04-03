@@ -7,14 +7,14 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 public class XSL {
-    final static String root="src/by/it/telushko/JD02_09/";
+    final static String root="src/by/it/telushko/JD02_09/xsl/";
     public static void main(String[ ] args) {
         String fileName=root+"clients.xml";
         try {
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer transformer = tf.newTransformer(new StreamSource(root+"clients.xsl"));
             transformer.transform(new StreamSource(root+"clients.xml"),
-                    new StreamResult(root+"xpath.html"));
+                    new StreamResult(root+"clients.html"));
             System.out.println("Преобразование " + fileName + " выполнено");
         } catch(TransformerException e) {
             System.err.println("Преобразование невозможно" + fileName + " : " + e);

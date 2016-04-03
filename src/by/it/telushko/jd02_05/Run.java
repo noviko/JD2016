@@ -1,8 +1,5 @@
 package by.it.telushko.jd02_05;
 
-import by.it.akhmelev.JD01_06.Level_A.Data;
-import by.it.telushko.jd01_02.InOut;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
