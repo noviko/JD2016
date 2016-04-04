@@ -25,7 +25,7 @@
                      minOccurs="1"
                      maxOccurs="unbounded"/>
         </sequence>
-        <attribute name="id" type="tns:ID" use="required" />
+
     </complexType>
 
     <simpleType name="ID">
@@ -49,9 +49,20 @@
                      minOccurs="1"
                      maxOccurs="1"/>
         </sequence>
+        <attribute name="id" type="tns:ID" use="required" />
     </complexType>
 
     <complexType name="Drugs">
+        <sequence>
+            <element name="drug"
+                     type="tns:Drug"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+        </sequence>
+
+    </complexType>
+
+    <complexType name="Drug">
         <sequence>
             <element name="name"
                      type="string"
@@ -77,15 +88,8 @@
                      minOccurs="1"
                      maxOccurs="unbounded"/>
         </sequence>
-        <attribute name="id" type="tns:ID" use="required" />
-        <attribute name="executor" use="optional" default="patient">
-            <simpleType>
-                <restriction base="string">
-                    <enumeration value="patient"/>
-                    <enumeration value="employee"/>
-                </restriction>
-            </simpleType>
-        </attribute>
+
+
     </complexType>
 
     <complexType name="Prescribing">
@@ -101,5 +105,14 @@
             </element>
             <element name="price" type="integer"/>
         </sequence>
+        <attribute name="id" type="tns:ID" use="required" />
+        <attribute name="executor" use="optional" default="patient">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="patient"/>
+                    <enumeration value="employee"/>
+                </restriction>
+            </simpleType>
+        </attribute>
     </complexType>
     </schema>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="library">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="book">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="nameBook"/>
+                                        <xs:element type="xs:string" name="author"/>
+                                        <xs:element type="xs:string" name="series"/>
+                                        <xs:element type="xs:string" name="style"/>
+                                        <xs:element type="xs:int" name="volumeBook"/>
+                                        <xs:element type="xs:int" name="numberOfBook"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="login"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="readers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="reader">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="name"/>
+                                        <xs:element type="xs:string" name="telephone"/>
+                                        <xs:element type="xs:string" name="numberOfTheLibraryCard"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="login"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="libraryCards">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="libraryCard">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="readerID"/>
+                                        <xs:element type="xs:string" name="dateOfCapture"/>
+                                        <xs:element type="xs:string" name="dateOfReturn"/>
+                                        <xs:element type="xs:string" name="bookID"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="login"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="123" xsi:noNamespaceSchemaLocation="schema/order.xsd">
+    <customer id="434" />
+    <products>
+        <product name="iPhone 6s" price="800">
+            <description>Apple iPhone 6s smartphone. Announced 2015, September. Features 3G, 4.7″ LED-backlit IPS LCD display, 12 MP camera, Wi-Fi, GPS, Bluetooth.</description>
+        </product>
+        <product name="Lenovo ThinkPad X260 " price="1500">
+            <description>Intel Core i3-6100U Processor (3MB cache, 2.30GHz) 12.5 HD Non-Touch 4GB DDR4-2133 SODIMM</description>
+        </product>
+    </products>
+    <delivery>post</delivery>
+</order>

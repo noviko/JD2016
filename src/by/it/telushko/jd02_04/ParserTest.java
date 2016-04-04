@@ -1,6 +1,5 @@
 package by.it.telushko.jd02_04;
 
-import static org.junit.Assert.*;
 
 public class ParserTest {
 

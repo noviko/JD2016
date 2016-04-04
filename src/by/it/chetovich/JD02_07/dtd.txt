@@ -1,0 +1,24 @@
+<!DOCTYPE hospital [
+        <!ELEMENT hospital (diagnoses, prescribings)+>
+        <!ELEMENT diagnoses (diagnosis)+>
+        <!ELEMENT diagnosis (nameD,drugs,recoveryTime)>
+        <!ATTLIST diagnosis
+                id ID #REQUIRED
+                >
+        <!ELEMENT nameD (#PCDATA)>
+        <!ELEMENT drugs (drug)+>
+        <!ELEMENT drug (name,dosage)>
+        <!ELEMENT dosage (#PCDATA)>
+        <!ELEMENT recoveryTime (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+
+        <!ELEMENT prescribings (prescribing)+>
+        <!ELEMENT prescribing (type,price)>
+        <!ATTLIST prescribing
+                id ID #REQUIRED
+                executor CDATA #IMPLIED
+                >
+        <!ELEMENT type (#PCDATA)>
+        <!ELEMENT price (#PCDATA)>
+
+        ]>

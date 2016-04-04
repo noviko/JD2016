@@ -1,0 +1,13 @@
+<!ELEMENT order (customer, products, delivery)>
+<!ATTLIST order
+          id CDATA #REQUIRED>
+<!ELEMENT customer (#PCDATA)>
+<!ATTLIST customer
+          id CDATA #REQUIRED>
+<!ELEMENT products (product+)>
+<!ELEMENT product (description)>
+<!ATTLIST product
+          name CDATA #REQUIRED
+          price CDATA #REQUIRED>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT delivery (#PCDATA)>
