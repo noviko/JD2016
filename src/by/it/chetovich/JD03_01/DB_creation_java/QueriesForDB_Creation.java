@@ -112,6 +112,7 @@ public class QueriesForDB_Creation {
         statement.executeUpdate("insert into cities (city) values ('New York');");
         statement.executeUpdate("insert into cities (city) values ('Florence');");
         statement.executeUpdate("insert into cities (city) values ('London');");
+        statement.executeUpdate("insert into cities (city) values ('Praga');");
 
         statement.executeUpdate("insert into profiles (id_user,id_city,description) " +
                 "values ((select id from users where name='Yuliya')," +
