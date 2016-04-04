@@ -1,7 +1,5 @@
 package by.it.knyazev.JD01.Less_6.A2;
 
-import by.it.daylidovich.JD01_06.C.task01.Format;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
