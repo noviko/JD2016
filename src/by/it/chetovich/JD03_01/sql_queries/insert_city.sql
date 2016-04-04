@@ -1,0 +1,1 @@
+insert into cities (city) values ('Ufa')
