@@ -16,8 +16,11 @@ public class Patterns {
     public static List<String> createT = new ArrayList<>();
 
     public static void createTfiller(){
+
         createT.add("SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";");
+
         createT.add("SET time_zone = \"+00:00\";\n");
+
         createT.add("CREATE TABLE IF NOT EXISTS `dle_post` (\n" +
                 "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `autor` varchar(40) NOT NULL DEFAULT '',\n" +

@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -89,11 +90,20 @@ public class Manager {
 
     public static void getIdCount() throws SQLException {
         int id = 0;
-        ResultSet resSet = Mysql.statement.executeQuery("SELECT id FROM dle_post");
+        ResultSet resSet = Mysql.statement.executeQuery("SELECT id FROM dle_post WHERE id = (SELECT MAX(id) FROM dle_post);");
         while (resSet.next()){
             id = resSet.getInt("id");
         }
         System.out.println(id);
+        if (id > 2000) {
+            if (id > 5000) Mysql.ExecuteUpdate("TRUNCATE TABLE dle_post");
+            else {
+                System.out.println("Truncate table? (Y\\N)");
+                String scn = new Scanner(System.in).nextLine();
+                if (scn.contains("Y")) Mysql.ExecuteUpdate("TRUNCATE TABLE dle_post");
+            }
+        }
+        if (id > 5000) Mysql.ExecuteUpdate("TRUNCATE TABLE dle_post");
     }
 
 }
