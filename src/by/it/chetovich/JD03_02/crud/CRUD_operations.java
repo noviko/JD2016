@@ -1,6 +1,8 @@
 package by.it.chetovich.JD03_02.crud;
 
 
+import java.sql.ResultSet;
+
 /**
  * CRUD operations
  */
@@ -149,6 +151,17 @@ public class CRUD_operations {
         String sql = "update feedbacks set feedback_text '"+feedback_text+"' where id = '"+id_feedback+"'";
 
         Connect.ConnectionExecuteUpdate(sql);
+    }
+
+    public static ResultSet selectAll (String tableName){
+
+        return Connect.ConnectionExecuteQuery("select * from " + tableName + ";");
+    }
+
+    public static ResultSet selectAllWhere (String tableName, String columnIdName, String id){
+
+        String sql = "select * from "+tableName+" where "+columnIdName+" = '"+id+"';";
+        return Connect.ConnectionExecuteQuery(sql);
     }
 
 
