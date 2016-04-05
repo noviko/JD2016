@@ -1,73 +1,70 @@
 package by.it.akhmelev.JD03_03;
 
+import by.it.Xampp;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
-class UserDAO extends AbstractDAO implements InterfaceDAO<User> {
-    private static UserDAO dao; //синглтон для DAO
-
-    static UserDAO getDAO() {   //метод, который создает DAO или возвращает существующий экземпляр
-        if (dao == null) {
-            dao = new UserDAO();
+class UserDAO extends DAO implements InterfaceDAO<User> {
+    @Override
+    public List<User> getAll(String WHERE) {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM users " + WHERE + " ;";
+        try (
+                Connection connection = Xampp.getConnection();
+                Statement statement = connection.createStatement();
+        ) {
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("ID"));
+                user.setLogin(rs.getString("login"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setFk_Role(rs.getInt("FK_Role"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return dao;
+        return users;
     }
 
-    private String sqlCreate(User user) {
-        return String.format(
+    @Override
+    public User read(int id) {
+        List<User> users = getAll("WHERE ID=" + id + " LIMIT 0,1");
+        if (users.size() > 0) {
+            return users.get(0);
+        } else
+            return null;
+    }
+    @Override
+    public boolean create(User user) {
+        String sql = String.format(
                 "insert INTO users(Login,Password,Email,FK_Role)" +
                         " values('%s','%s','%s',%d);",
                 user.getLogin(), user.getPassword(), user.getEmail(), user.getFk_Role()
         );
+        return (0 < executeUpdate(sql));
     }
-
-    private String sqlUpdate(User user) {
-        return String.format(
-                "update users SET `Login`=`%s`,`Password`=`%s`,`Email`=%s,FK_Role=%d)" +
-                        " values('%s','%s','%s',%d) WHERE ID=%d;",
+    @Override
+    public boolean update(User user) {
+        String sql = String.format(
+                "UPDATE `users` SET `Login` = '%s', `Password` = '%s', `Email` = '%s', `FK_Role` = '%d' WHERE `users`.`ID` = %d",
                 user.getLogin(), user.getPassword(), user.getEmail(), user.getFk_Role(), user.getId()
         );
+        return (0 < executeUpdate(sql));
     }
-
-    private String sqlDelete(User user) {
-        return String.format(
-                "DELETE FROM users WHERE ID=%d';", user.getId()
+    @Override
+    public boolean delete(User user) {
+        String sql = String.format(
+                "DELETE FROM `users` WHERE `users`.`ID` = %d;", user.getId()
         );
+        return (0 < executeUpdate(sql));
     }
 
-    @Override
-    public boolean set(User user) {
-        String sql;
-        int id = user.getId();
-        if (0 == id) {
-            sql = sqlCreate(user);
-        }
-        else if (0<id) {
-            sql=sqlUpdate(user);
-        }
-        else {
-            user.setId(-1*user.getId());
-            sql=sqlDelete(user);
-        }
-        return 0<executeUpdate(sql);
-    }
 
-    @Override
-    public List<User> getAll() {
-        return null;
-    }
-
-    @Override
-    public User getWhere(String expression) throws SQLException {
-        ResultSet rs=executeQuery("SELECT * FROM users WHERE ("+expression+");");
-        if (rs.next()) {
-        User user=new User();
-        user.setLogin(rs.getString("login"));
-        user.setEmail(rs.getString("email"));
-        user.setPassword(rs.getString("password"));
-        user.setFk_Role(rs.getInt("FK_Role"));
-        return user;}
-        else return null;
-    }
 }

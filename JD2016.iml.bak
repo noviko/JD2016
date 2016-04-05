@@ -8,8 +8,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/by/it/akhmelev/JD03_01/sql" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/out" />
-      <excludeFolder url="file://$MODULE_DIR$/src/by/it/telushko/jd02_10" />
-      <excludeFolder url="file://$MODULE_DIR$/src/by/it/zhuravlyov/JD02_01" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
