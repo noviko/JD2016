@@ -8,7 +8,7 @@ public class CRUD_Realization {
 
     public static void main(String[] args) {
 
-        //table users
+      /*  //table users
         //вывод всех записей
         CRUD_operations.selectUsers();
         //добавление записи
@@ -38,6 +38,22 @@ public class CRUD_Realization {
         //удаление записи
         CRUD_operations.deleteRole("3");
         //вывод оставшихся записей
-        CRUD_operations.selectRole();
+        CRUD_operations.selectRole();*/
+
+        //table cities
+        //вывод всех записей
+        CRUD_operations.selectCities();
+        //добавление записи
+        CRUD_operations.insertCities("Paris");
+        //вывод добавленной записи
+        CRUD_operations.selectCitiesWhere("city", "London");
+        //обновление записи
+        CRUD_operations.updateCities("3", "New-York");
+        //вывод обновлёееой записи
+        CRUD_operations.selectCitiesWhere("id_city", "3");
+        //удаление записи
+        CRUD_operations.deleteCities("5");
+        //вывод оставшихся записей
+        CRUD_operations.selectCities();
     }
 }
