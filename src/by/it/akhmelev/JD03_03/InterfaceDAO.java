@@ -10,7 +10,7 @@ interface InterfaceDAO<TYPE> {
     boolean update(TYPE entity);
     boolean delete(TYPE entity);
 
-    //READ - чтение всех элементов сущности по условию
+    //READ - чтение всех элементов по условию
     List<TYPE> getAll(String WhereAndOrder);
     //и другие необходимые системе операции
 
