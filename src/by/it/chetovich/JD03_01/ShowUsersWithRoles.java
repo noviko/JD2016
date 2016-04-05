@@ -3,7 +3,7 @@ package by.it.chetovich.JD03_01;
 import java.sql.*;
 
 /**
- * Users and their roles
+ * User and their roles
  */
 public class ShowUsersWithRoles {
 

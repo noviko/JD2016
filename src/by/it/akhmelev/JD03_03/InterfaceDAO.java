@@ -3,21 +3,15 @@ package by.it.akhmelev.JD03_03;
 import java.util.List;
 
 interface InterfaceDAO<TYPE> {
-    //CREATE Создание сущности
-    boolean create(TYPE entity);
-
-    //READ - чтение всех элементов сущности
-    List<TYPE> getAllEntity();
-
     //READ чтение отдельной сущности
-    TYPE getEntity(int id);
-
-    //UPDATE - обновление отдельной сущности
-    TYPE update(TYPE entity);
-
-    //DELETE - удаление отдельной сущности
-    boolean deleteID(int id);
-
+    TYPE read(int id);
+    //CREATE,UPDATE,DELETE обновление сущности
+    boolean create(TYPE entity);
+    boolean update(TYPE entity);
     boolean delete(TYPE entity);
+
+    //READ - чтение всех элементов по условию
+    List<TYPE> getAll(String WhereAndOrder);
+    //и другие необходимые системе операции
 
 }
