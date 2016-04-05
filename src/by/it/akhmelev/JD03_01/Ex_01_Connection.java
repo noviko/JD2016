@@ -12,7 +12,7 @@ public class Ex_01_Connection {
             //DriverManager.registerDriver(driver);
             try (Connection connection=
                          DriverManager.getConnection
-                                 ("jdbc:mysql://localhost:8889/java","root", "root");) {
+                                 ("jdbc:mysql://localhost:3306/it_academy?useUnicode=true&amp;characterEncoding=UTF-8","root", "");) {
                 if (!connection.isClosed())
                     System.out.println("Соединение установлено");
                 connection.close();
