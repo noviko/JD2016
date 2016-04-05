@@ -1,23 +1,17 @@
 package by.it.akhmelev.JD03_03;
 
+import java.sql.SQLException;
 import java.util.List;
 
 interface InterfaceDAO<TYPE> {
-    //CREATE Создание сущности
-    boolean create(TYPE entity);
+    //CREATE,UPDATE,DELETE обновление сущности
+    boolean set(TYPE entity);
 
     //READ - чтение всех элементов сущности
-    List<TYPE> getAllEntity();
+    List<TYPE> getAll();
 
     //READ чтение отдельной сущности
-    TYPE getEntity(int id);
+    TYPE getWhere(String expression) throws SQLException;
 
-    //UPDATE - обновление отдельной сущности
-    TYPE update(TYPE entity);
-
-    //DELETE - удаление отдельной сущности
-    boolean deleteID(int id);
-
-    boolean delete(TYPE entity);
 
 }
