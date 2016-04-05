@@ -1,6 +1,8 @@
 <?xml version ="1.0" encoding="UTF-8"?>
+<cars xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://generad.JD02_09.zhuravlyov.it.by/"
+          xsi:schemaLocation="http://generad.JD02_09.zhuravlyov.it.by/">
 
-<cars>
     <auto id="BMW">
         <brand>BMW 3 series</brand>
         <year>2005</year>
