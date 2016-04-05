@@ -1,5 +1,7 @@
-package by.it.chetovich.JD03_02.crud;
+package by.it.chetovich.JD03_02.CRUD_Realization;
 
+
+import by.it.chetovich.JD03_02.DB_it_academy.Connect;
 
 import java.sql.ResultSet;
 
@@ -9,7 +11,7 @@ import java.sql.ResultSet;
 public class CRUD_operations {
 
     public static void insertUsers
-             (String name, String surname, String login, String password, String birth_date, String id_role, String email){
+            (String name, String surname, String login, String password, String birth_date, String id_role, String email){
 
         String sql;
         if (email==null) {
@@ -33,8 +35,8 @@ public class CRUD_operations {
 
     public static void insertCities(String city){
 
-            String sql = "insert into cities (city) values ('"+city+"');";
-            Connect.ConnectionExecuteUpdate(sql);
+        String sql = "insert into cities (city) values ('"+city+"');";
+        Connect.ConnectionExecuteUpdate(sql);
     }
 
     public static void insertProfiles(String id_user, String id_city, String description){
@@ -155,14 +157,13 @@ public class CRUD_operations {
 
     public static ResultSet selectAll (String tableName){
 
-        return Connect.ConnectionExecuteQuery("select * from " + tableName + ";");
+        return Connect.ConnectionExecuteQuery("select * from "+tableName+";");
     }
 
     public static ResultSet selectAllWhere (String tableName, String columnIdName, String id){
 
         String sql = "select * from "+tableName+" where "+columnIdName+" = '"+id+"';";
-        return Connect.ConnectionExecuteQuery(sql);
+        return  Connect.ConnectionExecuteQuery(sql);
     }
-
 
 }
