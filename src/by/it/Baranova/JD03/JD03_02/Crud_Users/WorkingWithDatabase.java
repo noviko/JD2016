@@ -1,4 +1,4 @@
-package by.it.Baranova.JD03.JD03_02.CRUD_Seaview;
+package by.it.Baranova.JD03.JD03_02.CRUD_Users;
 
 
 import by.it.Baranova.JD03.JD03_02.CN;
@@ -8,7 +8,7 @@ import java.sql.*;
 public class WorkingWithDatabase {
 
     /**
-     * Reading table "Seaview" from database
+     * Reading table "Users" from database
      * @throws SQLException
      */
     public static void readingTable()throws SQLException {
@@ -16,17 +16,17 @@ public class WorkingWithDatabase {
         Statement stat;
         conn=DriverManager.getConnection(CN.URL_DB,CN.USER_DB,CN.PASSWORD_DB);
         stat=conn.createStatement();
-        System.out.println("TABLE SEAVIEW");
-        ResultSet resultSet=stat.executeQuery("SELECT * FROM Seaview;");
+        System.out.println("TABLE USERS");
+        ResultSet resultSet=stat.executeQuery("SELECT * FROM Users;");
         while (resultSet.next()){
-            String out=resultSet.getString("idSeaview")+" "+resultSet.getString("Seaviewcol");
+            String out=resultSet.getString("Login")+" "+resultSet.getString("Name")+" "+resultSet.getString("Surname")+" "+resultSet.getString("FKRole");
             System.out.println(out);
         }
         conn.close();
     }
 
     /**
-     * Create new row in table "Seaview" from database and reading this row
+     * Create a new row in table "Users" from database and reading this row
      * @throws SQLException
      */
     public static void create_read() throws SQLException{
@@ -34,21 +34,22 @@ public class WorkingWithDatabase {
         Statement stat;
         conn= DriverManager.getConnection(CN.URL_DB,CN.USER_DB,CN.PASSWORD_DB);
         stat=conn.createStatement();
-        stat.executeUpdate("INSERT INTO Seaview(idSeaview, Seaviewcol) VALUES (3,'partly')");
+        stat.executeUpdate("INSERT INTO Users (idUsers, Login, Password, Name, Surname, Phonenumber, Mail, FKRole, FKOrderNumber)\n"+
+               "VALUES (4,'Antonova','678h','Alina','Antonova','6745634','al_anton@icloud.com',2,null)");
         ResultSet resultSet=stat.executeQuery("" +
                 "SELECT * " +
-                "FROM Seaview " +
-                "WHERE idSeaview=3");
+                "FROM Users " +
+                "WHERE idUsers=4");
         System.out.print("Added row: ");
         while (resultSet.next()){
-            String out=resultSet.getString("idSeaview")+" "+resultSet.getString("Seaviewcol");
+            String out=resultSet.getString("Login")+" "+resultSet.getString("Name")+" "+resultSet.getString("Surname")+" "+resultSet.getString("FKRole");
             System.out.println(out);
         }
         conn.close();
     }
 
     /**
-     * Update row in the table and reading this row
+     * Update a row in the table and reading this row
      * @throws SQLException
      */
     public static void update_read() throws SQLException{
@@ -56,17 +57,21 @@ public class WorkingWithDatabase {
         Statement stat;
         conn= DriverManager.getConnection(CN.URL_DB,CN.USER_DB,CN.PASSWORD_DB);
         stat=conn.createStatement();
-        stat.executeUpdate("UPDATE Seaview SET idSeaview=3,Seaviewcol='a little bit' WHERE idSeaview=3");
+        stat.executeUpdate("UPDATE Users " +
+                "SET idUsers=4,Login='Antonova',Password='678h',Name='Alina',\n" +
+                "Surname='Bobrova',Phonenumber='6745634',Mail='al_anton@icloud.com',FKRole=2,FKOrderNumber=2 WHERE idUsers=4");
+
         ResultSet resultSet=stat.executeQuery("" +
                 "SELECT * " +
-                "FROM Seaview " +
-                "WHERE idSeaview=3");
+                "FROM Users " +
+                "WHERE idUsers=4");
         System.out.print("Changed row: ");
         while (resultSet.next()){
-            String out=resultSet.getString("idSeaview")+" "+resultSet.getString("Seaviewcol");
+            String out=resultSet.getString("Login")+" "+resultSet.getString("Name")+" "+resultSet.getString("Surname")+" "+resultSet.getString("FKRole");
             System.out.println(out);
         }
         conn.close();
+
     }
 
     /**
@@ -78,16 +83,16 @@ public class WorkingWithDatabase {
         Statement stat;
         conn= DriverManager.getConnection(CN.URL_DB,CN.USER_DB,CN.PASSWORD_DB);
         stat=conn.createStatement();
-        stat.executeUpdate("DELETE FROM Seaview WHERE idSeaview=3");
+        stat.executeUpdate("DELETE FROM Users WHERE idUsers=4");
         System.out.println("A new row was deleted");
         ResultSet resultSet=stat.executeQuery("" +
                 "SELECT * " +
-                "FROM Seaview ");
+                "FROM Users ");
         System.out.println("Left rows: ");
         while (resultSet.next()){
-            String out=resultSet.getString("idSeaview")+" "+resultSet.getString("Seaviewcol");
+            String out=resultSet.getString("Login")+" "+resultSet.getString("Name")+" "+resultSet.getString("Surname")+" "+resultSet.getString("FKRole");
             System.out.println(out);
         }
-        conn.close();
+    conn.close();
     }
 }
