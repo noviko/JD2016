@@ -1,9 +1,14 @@
 package by.it.chetovich.JD03_02.CRUD_Realization;
 
 
+import by.it.chetovich.JD03_02.DB_it_academy.CN;
 import by.it.chetovich.JD03_02.DB_it_academy.Connect;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Calendar;
 
 /**
  * CRUD operations
@@ -54,15 +59,15 @@ public class CRUD_operations {
 
     }
 
-    public static void deleteUsers (String id){
+    public static void deleteUsers (String columnName, String id){
 
-        String sql = "delete from users where id_city="+id;
+        String sql = "delete from users where "+columnName+" = '"+id+"';";
         Connect.ConnectionExecuteUpdate(sql);
     }
 
-    public static void deleteRole (String role_type){
+    public static void deleteRole (String id_role){
 
-        String sql = "delete from role where role_type="+role_type;
+        String sql = "delete from role where id_role="+id_role;
         Connect.ConnectionExecuteUpdate(sql);
     }
 
@@ -107,7 +112,7 @@ public class CRUD_operations {
         String sql = "update users set " + sqlName + (sqlSurname.isEmpty()?"":","+sqlSurname) +
                 (sqlLogin.isEmpty()?"":","+sqlLogin) + (sqlPassword.isEmpty()?"":","+sqlPassword) +
                 (sqlBirthdate.isEmpty()?"":","+sqlBirthdate) + (sqlRole.isEmpty()?"":","+sqlRole) +
-                (sqlEmail.isEmpty()?"":","+sqlEmail) + " where id='"+id+"'";
+                (sqlEmail.isEmpty()?"":","+sqlEmail) + " where id='"+id+"';";
 
         System.out.println(sql);
 
@@ -117,7 +122,7 @@ public class CRUD_operations {
     public static void updateRole
             (String id_role, String role_type){
 
-        String sql = "update role set role_type '"+role_type+"' where id = '"+id_role+"'";
+        String sql = "update role set role_type = '"+role_type+"' where id_role = '"+id_role+"';";
 
         Connect.ConnectionExecuteUpdate(sql);
     }
@@ -125,7 +130,7 @@ public class CRUD_operations {
     public static void updateCities
             (String id_city, String city){
 
-        String sql = "update cities set city '"+city+"' where id = '"+id_city+"'";
+        String sql = "update cities set city = '"+city+"' where id = '"+id_city+"'";
 
         Connect.ConnectionExecuteUpdate(sql);
     }
@@ -150,20 +155,93 @@ public class CRUD_operations {
     public static void updateFeedbacks
             (String id_feedback, String feedback_text){
 
-        String sql = "update feedbacks set feedback_text '"+feedback_text+"' where id = '"+id_feedback+"'";
+        String sql = "update feedbacks set feedback_text = '"+feedback_text+"' where id = '"+id_feedback+"'";
 
         Connect.ConnectionExecuteUpdate(sql);
     }
 
-    public static ResultSet selectAll (String tableName){
+    public static void selectUsers (){
 
-        return Connect.ConnectionExecuteQuery("select * from "+tableName+";");
+        Calendar today = Calendar.getInstance();
+
+        try (Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("select * from users;");
+
+            while (resultSet.next()){
+                Calendar birthday = Calendar.getInstance();
+                birthday.setTime(resultSet.getDate("birth_date"));
+                int age = today.get(Calendar.YEAR) - birthday.get(Calendar.YEAR);
+                String user = resultSet.getString("name")+" "+resultSet.getString("surname")+", "+age+"-year old, login: "+
+                        resultSet.getString("login")+" password: "+resultSet.getString("password")+", email: "+
+                        resultSet.getString("email")+" "+resultSet.getInt("id_role");
+                System.out.println(user);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 
-    public static ResultSet selectAllWhere (String tableName, String columnIdName, String id){
+    public static void selectUsersWhere (String columnIdName, String id){
 
-        String sql = "select * from "+tableName+" where "+columnIdName+" = '"+id+"';";
-        return  Connect.ConnectionExecuteQuery(sql);
+        String sql = "select * from users where "+columnIdName+" = '"+id+"';";
+        Calendar today = Calendar.getInstance();
+
+        try (Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()){
+                Calendar birthday = Calendar.getInstance();
+                birthday.setTime(resultSet.getDate("birth_date"));
+                int age = today.get(Calendar.YEAR) - birthday.get(Calendar.YEAR);
+                String user = resultSet.getString("name")+" "+resultSet.getString("surname")+", "+age+"-year old, login: "+
+                        resultSet.getString("login")+" password: "+resultSet.getString("password")+", email: "+
+                        resultSet.getString("email")+" "+resultSet.getInt("id_role");
+                System.out.println(user);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void selectRole (){
+
+        try (Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("select * from role;");
+
+            while (resultSet.next()){
+
+                String role = resultSet.getInt("id_role")+" - "+resultSet.getString("role_type");
+                System.out.println(role);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void selectRoleWhere (String columnIdName, String id){
+
+        String sql = "select * from role where "+columnIdName+" = '"+id+"';";
+        try (Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()){
+
+                String role = resultSet.getInt("id_role")+" - "+resultSet.getString("role_type");
+                System.out.println(role);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

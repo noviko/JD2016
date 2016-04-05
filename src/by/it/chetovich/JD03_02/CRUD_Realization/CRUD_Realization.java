@@ -1,12 +1,8 @@
 package by.it.chetovich.JD03_02.CRUD_Realization;
 
 
-import by.it.chetovich.JD03_02.CRUD_Realization.CRUD_operations;
-
-import java.sql.ResultSet;
-
 /**
- * Realization of CRUD operations for all tables in DB it-academy
+ * Realization of CRUD operations for users and role tables in DB it-academy
  */
 public class CRUD_Realization {
 
@@ -14,10 +10,34 @@ public class CRUD_Realization {
 
         //table users
         //вывод всех записей
-        ResultSet resultSet = CRUD_operations.selectAll("users");
+        CRUD_operations.selectUsers();
         //добавление записи
-        //CRUD_operations.insertUsers("Kate","Tomson","tomson","yultos","1985-10-10","1","tomson@gmail.com");
+        CRUD_operations.insertUsers("Kate","Tomson","tomson","yultos","1985-10-10","1","tomson@gmail.com");
         //вывод добавленной записи
-        //CRUD_operations.selectAllWhere("users","surname","Tomson");
+        CRUD_operations.selectUsersWhere("surname", "Tomson");
+        //обновление записи
+        CRUD_operations.updateUsers("2","Mark", null,null,null,null,null, null );
+        //вывод обновлёееой записи
+        CRUD_operations.selectUsersWhere("name", "Mark");
+        //удаление записи
+        CRUD_operations.deleteUsers("surname", "Tomson");
+        //вывод оставшихся записей
+        CRUD_operations.selectUsers();
+
+        //table role
+        //вывод всех записей
+        CRUD_operations.selectRole();
+        //добавление записи
+        CRUD_operations.insertRole("owner");
+        //вывод добавленной записи
+        CRUD_operations.selectRoleWhere("role_type", "owner");
+        //обновление записи
+        CRUD_operations.updateRole("2", "admin");
+        //вывод обновлёееой записи
+        CRUD_operations.selectRoleWhere("id_role", "2");
+        //удаление записи
+        CRUD_operations.deleteRole("3");
+        //вывод оставшихся записей
+        CRUD_operations.selectRole();
     }
 }
