@@ -1,0 +1,1 @@
+INSERT INTO Role (idRole, Rolecol) VALUES (1,"Manager")

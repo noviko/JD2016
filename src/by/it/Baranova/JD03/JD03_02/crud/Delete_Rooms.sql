@@ -1,0 +1,1 @@
+DELETE FROM Rooms WHERE 1

@@ -1,0 +1,2 @@
+UPDATE Rooms SET idRooms=value-1,RoomNumber=value-2,GuestQuantity=value-3,FKFirstBedSize=value-4,FKSecondBedSize=value-5,
+    FKSeaview=value-6,Floor=value-7,Price=value-8,FKOrderNumber=value-9 WHERE 1

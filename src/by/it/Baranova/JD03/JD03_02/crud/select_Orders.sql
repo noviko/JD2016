@@ -1,0 +1,1 @@
+SELECT idOrder, FKUser, DaysQuantity, GuestQuantity, FKReservedRoom FROM Orders WHERE 1

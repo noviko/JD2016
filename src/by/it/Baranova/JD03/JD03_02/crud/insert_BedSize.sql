@@ -1,0 +1,1 @@
+INSERT INTO BedSize(idBedSize, BedSizecol) VALUES (value-1,value-2)

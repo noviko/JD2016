@@ -1,0 +1,1 @@
+UPDATE Role SET idRole=1,Rolecol="Director" WHERE 1

@@ -1,0 +1,1 @@
+SELECT idSeaview, Seaviewcol FROM Seaview WHERE 1

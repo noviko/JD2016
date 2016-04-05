@@ -1,0 +1,1 @@
+SELECT idBedSize, BedSizecol FROM BedSize WHERE 1
