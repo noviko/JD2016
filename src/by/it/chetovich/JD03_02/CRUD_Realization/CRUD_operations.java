@@ -3,11 +3,9 @@ package by.it.chetovich.JD03_02.CRUD_Realization;
 
 import by.it.chetovich.JD03_02.DB_it_academy.CN;
 import by.it.chetovich.JD03_02.DB_it_academy.Connect;
+import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Calendar;
 
 /**
@@ -71,9 +69,9 @@ public class CRUD_operations {
         Connect.ConnectionExecuteUpdate(sql);
     }
 
-    public static void deleteCities (String city){
+    public static void deleteCities (String id_city){
 
-        String sql = "delete from cities where city="+city;
+        String sql = "delete from cities where id_city="+id_city;
         Connect.ConnectionExecuteUpdate(sql);
     }
 
@@ -130,7 +128,7 @@ public class CRUD_operations {
     public static void updateCities
             (String id_city, String city){
 
-        String sql = "update cities set city = '"+city+"' where id = '"+id_city+"'";
+        String sql = "update cities set city = '"+city+"' where id_city = '"+id_city+"'";
 
         Connect.ConnectionExecuteUpdate(sql);
     }
@@ -241,6 +239,41 @@ public class CRUD_operations {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void selectCities (){
+
+        try (Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("select * from cities;");
+
+            while (resultSet.next()){
+
+                String role = resultSet.getInt("id_city")+" - "+resultSet.getString("city");
+                System.out.println(role);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void selectCitiesWhere (String columnIdName, String id) {
+
+        String sql = "select * from cities where "+columnIdName+" = '"+id+"';";
+        try (Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()){
+
+                String city = resultSet.getInt("id_city")+" - "+resultSet.getString("city");
+                System.out.println(city);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Нет такого поля");
         }
     }
 
