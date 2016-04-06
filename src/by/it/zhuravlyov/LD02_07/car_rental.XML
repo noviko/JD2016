@@ -1,0 +1,37 @@
+<?xml version ="1.0" encoding="UTF-8"?>
+<cars xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://generad.JD02_09.zhuravlyov.it.by/"
+          xsi:schemaLocation="http://generad.JD02_09.zhuravlyov.it.by/">
+
+    <auto id="BMW">
+        <brand>BMW 3 series</brand>
+        <year>2005</year>
+        <fuel>petrol</fuel>
+        <mileage>12000</mileage>
+        <Transmission>mechanical</Transmission>
+    </auto>
+
+    <auto id="mazda">
+        <brand>mazda 6</brand>
+        <year>2011</year>
+        <fuel>petrol</fuel>
+        <mileage>20000</mileage>
+        <Transmission>automatic</Transmission>
+    </auto>
+
+    <auto id="audi">
+        <brand>audi TT</brand>
+        <year>2010</year>
+        <fuel>petrol</fuel>
+        <mileage>90000</mileage>
+        <Transmission>mechanical</Transmission>
+    </auto>
+
+    <auto id="toyota">
+    <brand>Toyota tundra</brand>
+    <year>2013</year>
+    <fuel>petrol</fuel>
+    <mileage>180000</mileage>
+    <Transmission>automatic</Transmission>
+    </auto>
+</cars>

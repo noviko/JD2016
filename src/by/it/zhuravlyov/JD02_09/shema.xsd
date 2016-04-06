@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://generate.JD02_09.zhuravlyov.it.by/"
+        xmlns:tns="http://generate.JD02_09.zhuravlyov.it.by/"
+        elementFormDefault="qualified">
+    <element name="cars">
+        <complexType>
+            <sequence>
+                <element name="auto"
+                         type="tns:auto"
+                         minOccurs="1"
+                         maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="auto">
+        <sequence>
+            <element name="brand" type="string" />
+            <element name="year" type="int" />
+            <element name="fuel" type="string" />
+            <element name="mileage" type="positiveInteger" />
+            <element name="Transmission" type="string" />
+
+        </sequence>
+        <attribute name="id" type="ID" use="required" />
+
+   </complexType>
+</schema>
