@@ -11,9 +11,6 @@ import java.util.Date;
  */
 public class QueriesForDB_Creation {
 
-    public static void createSchema (Statement statement) throws Exception {
-        statement.executeUpdate("CREATE SCHEMA `searchhost_java` DEFAULT CHARACTER SET utf8 ;");
-    }
 
     public static void createTable(Statement statement) throws Exception {
 
