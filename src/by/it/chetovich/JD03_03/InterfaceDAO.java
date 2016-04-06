@@ -12,4 +12,5 @@ public interface InterfaceDAO <T> {
     boolean delete (T t);
     T read (int id);
     HashMap<Integer, T> getAll (String where);
+    void showTable();
 }

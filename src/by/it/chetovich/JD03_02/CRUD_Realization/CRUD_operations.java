@@ -3,7 +3,7 @@ package by.it.chetovich.JD03_02.CRUD_Realization;
 
 import by.it.chetovich.JD03_02.DB_it_academy.CN;
 import by.it.chetovich.JD03_02.DB_it_academy.Connect;
-import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
+
 
 import java.sql.*;
 import java.util.Calendar;

@@ -1,8 +1,12 @@
 package by.it.chetovich.JD03_03;
 
+import by.it.chetovich.JD03_02.DB_it_academy.CN;
 import by.it.chetovich.JD03_02.DB_it_academy.User;
 
+import java.sql.*;
 import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * UserDAO
@@ -23,26 +27,64 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
     public boolean update(User user) {
         String sql = String.format(
                 "UPDATE `users` SET `name` = '%s', `surname` = '%s', `login` = '%s', `password` = '%s'," +
-                        "'birth_date' = '%d', 'id_role' = '%d', 'email' = '%s' WHERE `id` = %d",
-                
+                        "'birth_date' = '%s', 'id_role' = '%d', 'email' = '%s' WHERE `id` = %d", user.getName(),
+                user.getSurname(), user.getLogin(), user.getPassword(), user.getBirthdate(), user.getRole(), user.getEmail(),
+                user.getId()
+
         );
         return (0 < executeUpdate(sql));
     }
 
     @Override
     public boolean delete(User user) {
-        return false;
+        String sql = String.format(
+                "DELETE FROM `users` WHERE 'id' = %d;", user.getId()
+        );
+        return (0 < executeUpdate(sql));
     }
 
     @Override
     public User read(int id) {
-        return null;
-    }
+        HashMap<Integer,User> users = getAll("WHERE ID=" + id);
+        if (users.size() > 0) {
+            return users.get(0);
+        } else
+            return null;    }
 
     @Override
     public HashMap<Integer, User> getAll(String where) {
-        return null;
+        HashMap <Integer, User> users = new HashMap<>();
+        String sql = "SELECT * FROM users " + where + " ;";
+        try (
+                Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
+                Statement statement = connection.createStatement()
+        ) {
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setSurname(rs.getString("surname"));
+                user.setLogin(rs.getString("login"));
+                user.setPassword(rs.getString("password"));
+                user.setBirthdate(rs.getTimestamp("birth_date"));
+                user.setRole(rs.getInt("id_role"));
+                user.setEmail(rs.getString("email"));
+                users.put(rs.getInt("id"),user);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;    }
+
+    @Override
+    public void showTable() {
+        HashMap<Integer, User> users = getAll("");
+        System.out.println("USERS");
+        for (Map.Entry<Integer, User> entry : users.entrySet()) {
+            String s = "User "+entry.getKey().toString() + ": "+entry.getValue().toString();
+            System.out.println(s);
+        }
     }
-
-
 }

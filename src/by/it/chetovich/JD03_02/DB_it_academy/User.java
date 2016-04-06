@@ -1,6 +1,9 @@
 package by.it.chetovich.JD03_02.DB_it_academy;
 
-import java.util.Date;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import by.it.chetovich.JD03_03.RoleDAO;
+
 
 /**
  * for table users
@@ -11,11 +14,16 @@ public class User {
     String surname;
     String login;
     String password;
-    Date birthdate;
+    Timestamp birthdate;
     int role;
     String email;
+    int id;
 
-    public User(String name, String surname, String login, String password, Date birthdate, int role, String email) {
+    public User (){
+
+    }
+
+    public User(String name, String surname, String login, String password, Timestamp birthdate, int role, String email) {
         this.name = name;
         this.surname = surname;
         this.login = login;
@@ -23,6 +31,14 @@ public class User {
         this.birthdate = birthdate;
         this.role = role;
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -41,7 +57,7 @@ public class User {
         return password;
     }
 
-    public Date getBirthdate() {
+    public Timestamp getBirthdate() {
         return birthdate;
     }
 
@@ -69,7 +85,7 @@ public class User {
         this.password = password;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(Timestamp birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -79,5 +95,26 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        String res;
+        try {
+
+            res="User{" +
+                    "id = " + id +
+                    ", name = " + name +
+                    ", surname = " + surname +
+                    ", birthdate  = " + birthdate +
+                    ", login = " + login +
+                    ", password = " + password +
+                    ", email = " + email +
+                    ", id_role = " + new RoleDAO().getRole(role) +
+                    '}';
+        } catch (SQLException e) {
+            res=e.toString();
+        }
+        return res;
     }
 }

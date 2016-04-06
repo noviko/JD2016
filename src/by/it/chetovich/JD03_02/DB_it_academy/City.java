@@ -6,6 +6,7 @@ package by.it.chetovich.JD03_02.DB_it_academy;
 public class City {
 
     String city;
+    int id_city;
 
     public City(String city) {
         this.city = city;
@@ -15,9 +16,15 @@ public class City {
         return city;
     }
 
-
     public void setCity(String city) {
         this.city = city;
     }
-    
+
+    public int getId_city() {
+        return id_city;
+    }
+
+    public void setId_city(int id_city) {
+        this.id_city = id_city;
+    }
 }
