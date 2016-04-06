@@ -1,4 +1,4 @@
-package by.it.Baranova.JD03;
+package by.it.Baranova.JD03.JD03_01;
 
 
 import java.sql.Connection;
@@ -16,7 +16,6 @@ public class Ex_02_CN {
                     String out=resultSet.getString("Surname")+" "+resultSet.getString("Name")+" "+resultSet.getString("FKRole");
                     System.out.println(out);
                 }
-
         }
         catch (Exception e){
             e.printStackTrace();

@@ -1,4 +1,4 @@
-package by.it.Baranova.JD03.JD03_01.SQL;
+package by.it.Baranova.JD03.JD03_01;
 
 import java.sql.*;
 

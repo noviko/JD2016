@@ -1,9 +1,6 @@
 package by.it.knyazev.JD01.Less_6.A2;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 4cf27e495a2c9952828a02ded74f623dc92e6417
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

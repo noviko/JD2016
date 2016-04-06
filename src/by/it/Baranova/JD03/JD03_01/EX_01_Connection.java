@@ -1,6 +1,4 @@
-package by.it.Baranova.JD03.JD03_01.SQL;
-
-import by.it.Baranova.JD03.JD03_01.SQL.CN;
+package by.it.Baranova.JD03.JD03_01;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

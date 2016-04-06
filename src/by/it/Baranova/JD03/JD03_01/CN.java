@@ -1,4 +1,4 @@
-package by.it.Baranova.JD03.JD03_01.SQL;
+package by.it.Baranova.JD03.JD03_01;
 
 public class CN {
     public static final String URL_DB = "jdbc:mysql://127.0.0.1:3306/Hotel";
