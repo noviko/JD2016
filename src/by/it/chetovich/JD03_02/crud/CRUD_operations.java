@@ -2,6 +2,7 @@ package by.it.chetovich.JD03_02.crud;
 
 
 import java.sql.ResultSet;
+import static by.it.chetovich.JD03_02.crud.Connect.*;
 
 /**
  * CRUD operations
@@ -20,27 +21,27 @@ public class CRUD_operations {
             sql = "insert into users (name, surname, login, password, birth_date, id_role, email) " +
                     "values ('"+name+"','"+surname+"','"+login+"','"+password+"','"+birth_date+"',"+id_role+", '"+email+"');";
         }
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
 
     }
 
     public static void insertRole(String role_type ){
 
         String sql = "insert into role (role_type) values ('"+role_type+"');";
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
 
     }
 
     public static void insertCities(String city){
 
             String sql = "insert into cities (city) values ('"+city+"');";
-            Connect.ConnectionExecuteUpdate(sql);
+            ConnectionExecuteUpdate(sql);
     }
 
     public static void insertProfiles(String id_user, String id_city, String description){
 
         String sql = "insert into profiles (id_user,id_city,description) values ('"+id_user+"','"+id_city+"','"+description+"');" ;
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
 
     }
 
@@ -48,38 +49,38 @@ public class CRUD_operations {
 
         String sql = "insert into profiles (id_feedback, feedback_from, feedback_to, feedback_text) " +
                 "values ('"+id_feedback+"','"+feedback_from+"','"+feedback_to+"','"+feedback_text+"');" ;
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
 
     }
 
     public static void deleteUsers (String id){
 
         String sql = "delete from users where id_city="+id;
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void deleteRole (String role_type){
 
         String sql = "delete from role where role_type="+role_type;
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void deleteCities (String city){
 
         String sql = "delete from cities where city="+city;
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void deleteProfiles (String id_user){
 
         String sql = "delete from profiles where id_user="+id_user;
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void deleteFeedbacks (String id){
 
         String sql = "delete from feedbacks where id_feedback="+id;
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void updateUsers
@@ -109,7 +110,7 @@ public class CRUD_operations {
 
         System.out.println(sql);
 
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void updateRole
@@ -117,7 +118,7 @@ public class CRUD_operations {
 
         String sql = "update role set role_type '"+role_type+"' where id = '"+id_role+"'";
 
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void updateCities
@@ -125,7 +126,7 @@ public class CRUD_operations {
 
         String sql = "update cities set city '"+city+"' where id = '"+id_city+"'";
 
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void updateProfiles
@@ -142,7 +143,7 @@ public class CRUD_operations {
 
         System.out.println(sql);
 
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static void updateFeedbacks
@@ -150,18 +151,18 @@ public class CRUD_operations {
 
         String sql = "update feedbacks set feedback_text '"+feedback_text+"' where id = '"+id_feedback+"'";
 
-        Connect.ConnectionExecuteUpdate(sql);
+        ConnectionExecuteUpdate(sql);
     }
 
     public static ResultSet selectAll (String tableName){
 
-        return Connect.ConnectionExecuteQuery("select * from " + tableName + ";");
+        return ConnectionExecuteQuery("select * from " + tableName + ";");
     }
 
     public static ResultSet selectAllWhere (String tableName, String columnIdName, String id){
 
         String sql = "select * from "+tableName+" where "+columnIdName+" = '"+id+"';";
-        return Connect.ConnectionExecuteQuery(sql);
+        return ConnectionExecuteQuery(sql);
     }
 
 
