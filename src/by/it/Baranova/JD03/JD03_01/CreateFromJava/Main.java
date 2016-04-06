@@ -12,6 +12,8 @@ public class Main {
         try (Connection connection= DriverManager.getConnection(CN.URL_DB,CN.USER_DB,CN.PASSWORD_DB)){
             Statement stat=connection.createStatement();
             CreationTables.createTables(stat);
+            CreationTables.fillingTables(stat);
+
         } catch (SQLException e){
             e.printStackTrace();
         }

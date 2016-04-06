@@ -11,8 +11,9 @@ public class CreateDB {
                              (("jdbc:mysql://localhost/?user=root&password=root"));){
             Statement statement=connection.createStatement();
 
-            // int count=statement.executeUpdate("CREATE DATABASE HotelJava");
+            int count=statement.executeUpdate("CREATE DATABASE HotelJava");
             System.out.println("Schema 'HotelJava' created");
+            //statement.executeUpdate("drop database HotelJava");
             connection.close();
         } catch (Exception e){
             e.printStackTrace();
