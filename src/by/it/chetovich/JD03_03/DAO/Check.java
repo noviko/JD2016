@@ -1,13 +1,12 @@
 package by.it.chetovich.JD03_03.DAO;
 
-import by.it.chetovich.JD03_02.DB_it_academy.Profile;
-import by.it.chetovich.JD03_02.DB_it_academy.User;
+
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
+
 
 /**
- * Created by Yultos_ on 07.04.2016.
+ * Временный класс для проверок
  */
 public class Check {
 

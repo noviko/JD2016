@@ -18,7 +18,7 @@ public class Main {
         userDAO.showTable();
 
         //добавляем пользователя и выводим его
-        User user = new User("Anna","Drake","drake","yultos", new Timestamp(630720000000l),1,"drake@gmail.com");
+        User user = new User("Anna","Drake","drake","yultos", Timestamp.valueOf("1980-05-15 00:00:00"),1,"drake@gmail.com");
         if (userDAO.create(user)) System.out.println("Пользователь добавлен.");
         System.out.println(user);
 
