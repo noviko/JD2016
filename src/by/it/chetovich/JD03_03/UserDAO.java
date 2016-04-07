@@ -18,7 +18,7 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
     public boolean create(User user) {
         String sql = String.format("insert into users (name, surname, login, password, birth_date, id_role, email) " +
                 "values ('%s','%s','%s','%s','%s','%d','%s' );", user.getName(), user.getSurname(), user.getLogin(),
-                user.getPassword(), user.getBirthdate(), user.getId(), user.getEmail());
+                user.getPassword(), user.getBirthdate(), user.getRole(), user.getEmail());
 
         return (0 < executeUpdate(sql));
     }
@@ -26,8 +26,8 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
     @Override
     public boolean update(User user) {
         String sql = String.format(
-                "UPDATE `users` SET `name` = '%s', `surname` = '%s', `login` = '%s', `password` = '%s'," +
-                        "'birth_date' = '%s', 'id_role' = '%d', 'email' = '%s' WHERE `id` = %d", user.getName(),
+                "UPDATE users SET name = '%s', surname = '%s', login = '%s', password = '%s'," +
+                        "birth_date = '%s', id_role = '%d', email = '%s' WHERE id = %d", user.getName(),
                 user.getSurname(), user.getLogin(), user.getPassword(), user.getBirthdate(), user.getRole(), user.getEmail(),
                 user.getId()
 
@@ -38,16 +38,16 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
     @Override
     public boolean delete(User user) {
         String sql = String.format(
-                "DELETE FROM `users` WHERE 'id' = %d;", user.getId()
+                "DELETE FROM users WHERE id = %d;", user.getId()
         );
         return (0 < executeUpdate(sql));
     }
 
     @Override
     public User read(int id) {
-        HashMap<Integer,User> users = getAll("WHERE ID=" + id);
+        HashMap<Integer,User> users = getAll("WHERE id=" + id);
         if (users.size() > 0) {
-            return users.get(0);
+            return users.get(id);
         } else
             return null;    }
 
