@@ -1,4 +1,4 @@
-package by.it.chetovich.JD03_03;
+package by.it.chetovich.JD03_03.DAO;
 
 import by.it.chetovich.JD03_02.DB_it_academy.CN;
 import by.it.chetovich.JD03_02.DB_it_academy.User;
@@ -15,7 +15,7 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
 
 
     @Override
-    public boolean create(User user) {
+    public boolean create(User user) throws SQLException {
         String sql = String.format("insert into users (name, surname, login, password, birth_date, id_role, email) " +
                 "values ('%s','%s','%s','%s','%s','%d','%s' );", user.getName(), user.getSurname(), user.getLogin(),
                 user.getPassword(), user.getBirthdate(), user.getRole(), user.getEmail());
@@ -24,7 +24,7 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
     }
 
     @Override
-    public boolean update(User user) {
+    public boolean update(User user) throws SQLException {
         String sql = String.format(
                 "UPDATE users SET name = '%s', surname = '%s', login = '%s', password = '%s'," +
                         "birth_date = '%s', id_role = '%d', email = '%s' WHERE id = %d", user.getName(),
@@ -36,7 +36,7 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
     }
 
     @Override
-    public boolean delete(User user) {
+    public boolean delete(User user) throws SQLException {
         String sql = String.format(
                 "DELETE FROM users WHERE id = %d;", user.getId()
         );
@@ -44,7 +44,7 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
     }
 
     @Override
-    public User read(int id) {
+    public User read(int id) throws SQLException {
         HashMap<Integer,User> users = getAll("WHERE id=" + id);
         if (users.size() > 0) {
             return users.get(id);
@@ -52,13 +52,14 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
             return null;    }
 
     @Override
-    public HashMap<Integer, User> getAll(String where) {
+    public HashMap<Integer, User> getAll(String where) throws SQLException {
         HashMap <Integer, User> users = new HashMap<>();
         String sql = "SELECT * FROM users " + where + " ;";
-        try (
+        /*try (
                 Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
                 Statement statement = connection.createStatement()
-        ) {
+        ) {*/
+            Statement statement = DAO.getStatement();
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 User user = new User();
@@ -73,18 +74,30 @@ public class UserDAO extends DAO implements InterfaceDAO<User> {
                 users.put(rs.getInt("id"),user);
 
             }
-        } catch (SQLException e) {
+
+        /*} catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
         return users;    }
 
     @Override
-    public void showTable() {
+    public void showTable() throws SQLException {
         HashMap<Integer, User> users = getAll("");
         System.out.println("USERS");
         for (Map.Entry<Integer, User> entry : users.entrySet()) {
             String s = "User "+entry.getKey().toString() + ": "+entry.getValue().toString();
             System.out.println(s);
         }
+    }
+
+    public int getUserId (String where) throws SQLException {
+
+        //String sql = "select id from users "+where+";";
+        HashMap<Integer,User> users = getAll(where);
+            int key = 0;
+            for (Map.Entry<Integer, User> entry : users.entrySet()) {
+                key = entry.getKey();
+            }
+            return key;
     }
 }

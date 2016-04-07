@@ -2,7 +2,7 @@ package by.it.chetovich.JD03_02.DB_it_academy;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import by.it.chetovich.JD03_03.RoleDAO;
+import by.it.chetovich.JD03_03.DAO.RoleDAO;
 
 
 /**
@@ -110,7 +110,7 @@ public class User {
                     ", login = " + login +
                     ", password = " + password +
                     ", email = " + email +
-                    ", id_role = " + new RoleDAO().getRole(role) +
+                    ", role = " + new RoleDAO().getRole(role) +
                     '}';
         } catch (SQLException e) {
             res=e.toString();

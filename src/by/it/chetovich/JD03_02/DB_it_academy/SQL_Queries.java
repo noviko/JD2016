@@ -29,7 +29,7 @@ public class SQL_Queries {
                 "  `surname` VARCHAR(45) NOT NULL,\n" +
                 "  `login` VARCHAR(45) NOT NULL,\n" +
                 "  `password` VARCHAR(45) NOT NULL,\n" +
-                "  `birth_date` DATE NOT NULL,\n" +
+                "  `birth_date` TIMESTAMP(6) NOT NULL,\n" +
                 "  `id_role` INT NOT NULL,\n" +
                 "  `email` VARCHAR(45) NULL,\n" +
                 "  PRIMARY KEY (`id`),\n" +

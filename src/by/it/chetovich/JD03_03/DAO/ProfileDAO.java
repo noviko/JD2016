@@ -1,8 +1,6 @@
-package by.it.chetovich.JD03_03;
+package by.it.chetovich.JD03_03.DAO;
 
-import by.it.chetovich.JD02_01.Profit;
 import by.it.chetovich.JD03_02.DB_it_academy.CN;
-import by.it.chetovich.JD03_02.DB_it_academy.Feedback;
 import by.it.chetovich.JD03_02.DB_it_academy.Profile;
 
 import java.sql.*;
@@ -16,7 +14,7 @@ public class ProfileDAO extends DAO implements InterfaceDAO<Profile> {
 
 
     @Override
-    public boolean create(Profile profile) {
+    public boolean create(Profile profile) throws SQLException {
         String sql = String.format("insert into profiles (id_user, id_city, description) " +
                         "values ('%d','%d','%s' );", profile.getId_user(), profile.getId_city(),
                 profile.getDescription());
@@ -25,7 +23,7 @@ public class ProfileDAO extends DAO implements InterfaceDAO<Profile> {
     }
 
     @Override
-    public boolean update(Profile profile) {
+    public boolean update(Profile profile) throws SQLException {
         String sql = String.format(
                 "UPDATE profiles SET id_city = '%d', description = '%s' " +
                         "WHERE id_user = %d", profile.getId_city(), profile.getDescription(),
@@ -35,7 +33,7 @@ public class ProfileDAO extends DAO implements InterfaceDAO<Profile> {
     }
 
     @Override
-    public boolean delete(Profile profile) {
+    public boolean delete(Profile profile) throws SQLException {
         String sql = String.format(
                 "DELETE FROM profiles WHERE id_user = %d;", profile.getId_user());
 
@@ -43,22 +41,23 @@ public class ProfileDAO extends DAO implements InterfaceDAO<Profile> {
     }
 
     @Override
-    public Profile read(int id) {
-        HashMap<Integer, Profile> profiles = getAll("where id_user = '"+id);
+    public Profile read(int id) throws SQLException {
+        HashMap<Integer, Profile> profiles = getAll("where id_user = "+id);
         if (profiles.size()>0)
-            return profiles.get(0);
+            return profiles.get(id);
         else return null;
     }
 
     @Override
-    public HashMap<Integer, Profile> getAll(String where) {
+    public HashMap<Integer, Profile> getAll(String where) throws SQLException {
         HashMap <Integer, Profile> profiles = new HashMap<>();
         String sql = "SELECT * FROM profiles " + where + " ;";
-        try (
+        /*try (
                 Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
                 Statement statement = connection.createStatement()
-        ) {
-            ResultSet rs = statement.executeQuery(sql);
+        ) {*/
+        Statement statement = DAO.getStatement();
+        ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 Profile profile = new Profile();
                 profile.setId_user(rs.getInt("id_user"));
@@ -67,14 +66,14 @@ public class ProfileDAO extends DAO implements InterfaceDAO<Profile> {
                 profiles.put(rs.getInt("id_user"),profile);
 
             }
-        } catch (SQLException e) {
+        /*} catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
         return profiles;
     }
 
     @Override
-    public void showTable() {
+    public void showTable() throws SQLException {
         HashMap<Integer, Profile> profiles = getAll("");
         System.out.println("PROFILES");
         for (Map.Entry<Integer, Profile> entry : profiles.entrySet()) {

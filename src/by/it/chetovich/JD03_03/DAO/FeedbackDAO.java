@@ -1,8 +1,7 @@
-package by.it.chetovich.JD03_03;
+package by.it.chetovich.JD03_03.DAO;
 
 import by.it.chetovich.JD03_02.DB_it_academy.CN;
 import by.it.chetovich.JD03_02.DB_it_academy.Feedback;
-import by.it.chetovich.JD03_02.DB_it_academy.User;
 
 import java.sql.*;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ public class FeedbackDAO extends DAO implements InterfaceDAO<Feedback> {
 
 
     @Override
-    public boolean create(Feedback feedback) {
+    public boolean create(Feedback feedback) throws SQLException {
         String sql = String.format("insert into feedbacks (feedback_from, feedback_to, feedback_text) " +
                         "values ('%d','%d','%s' );", feedback.getFeedback_from(), feedback.getFeedback_to(),
                          feedback.getFeedback_text());
@@ -24,7 +23,7 @@ public class FeedbackDAO extends DAO implements InterfaceDAO<Feedback> {
     }
 
     @Override
-    public boolean update(Feedback feedback) {
+    public boolean update(Feedback feedback) throws SQLException {
         String sql = String.format(
                 "UPDATE feedbacks SET feedback_from = '%d', feedback_to = '%d', feedback_text = '%s' " +
                         "WHERE id_feedback = %d", feedback.getFeedback_from(), feedback.getFeedback_to(),
@@ -33,7 +32,7 @@ public class FeedbackDAO extends DAO implements InterfaceDAO<Feedback> {
         return (0 < executeUpdate(sql));    }
 
     @Override
-    public boolean delete(Feedback feedback) {
+    public boolean delete(Feedback feedback) throws SQLException {
         String sql = String.format(
                 "DELETE FROM feedbacks WHERE id_feedback = %d;", feedback.getId_feedback());
 
@@ -41,7 +40,7 @@ public class FeedbackDAO extends DAO implements InterfaceDAO<Feedback> {
     }
 
     @Override
-    public Feedback read(int id) {
+    public Feedback read(int id) throws SQLException {
         HashMap<Integer,Feedback> feedbacks = getAll("WHERE id_feedback=" + id);
         if (feedbacks.size() > 0) {
             return feedbacks.get(0);
@@ -50,14 +49,15 @@ public class FeedbackDAO extends DAO implements InterfaceDAO<Feedback> {
     }
 
     @Override
-    public HashMap<Integer, Feedback> getAll(String where) {
+    public HashMap<Integer, Feedback> getAll(String where) throws SQLException {
         HashMap <Integer, Feedback> feedbacks = new HashMap<>();
         String sql = "SELECT * FROM feedbacks " + where + " ;";
-        try (
+        /*try (
                 Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
                 Statement statement = connection.createStatement()
-        ) {
-            ResultSet rs = statement.executeQuery(sql);
+        ) {*/
+        Statement statement = DAO.getStatement();
+        ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 Feedback feedback = new Feedback();
                 feedback.setId_feedback(rs.getInt("id_feedback"));
@@ -67,14 +67,14 @@ public class FeedbackDAO extends DAO implements InterfaceDAO<Feedback> {
                 feedbacks.put(rs.getInt("id_feedback"),feedback);
 
             }
-        } catch (SQLException e) {
+        /*} catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
         return feedbacks;
     }
 
     @Override
-    public void showTable() {
+    public void showTable() throws SQLException {
         HashMap<Integer, Feedback> feedbacks = getAll("");
         System.out.println("FEEDBACKS");
         for (Map.Entry<Integer, Feedback> entry : feedbacks.entrySet()) {
