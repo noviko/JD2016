@@ -1,0 +1,1 @@
+SELECT idRole, Rolecol FROM Role WHERE 1

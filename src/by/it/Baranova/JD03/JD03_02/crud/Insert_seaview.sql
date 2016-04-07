@@ -1,0 +1,1 @@
+INSERT INTO Seaview(idSeaview, Seaviewcol) VALUES (value-1,value-2)

@@ -1,0 +1,1 @@
+UPDATE BedSize SET idBedSize=value-1,BedSizecol=value-2 WHERE 1

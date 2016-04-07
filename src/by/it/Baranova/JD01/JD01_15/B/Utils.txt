@@ -1,0 +1,23 @@
+01  package by.it.Baranova.JD01_15.C;
+02  
+03  import java.io.BufferedReader;
+04  import java.io.IOException;
+05  import java.io.InputStreamReader;
+06  import java.util.Map;
+07  
+08    public class Utils {
+09  
+10      public static String ReadLine()throws IOException {
+11          BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+12          String rLine = bufferedReader.readLine();
+13                  return rLine;
+14  
+15      }
+16                         public static void printHashmap (Map<String,String> hashMap){
+17          if (!hashMap.isEmpty()) {
+18              for (Map.Entry<String,String> pair: hashMap.entrySet())
+19                  System.out.println(pair.getKey()+"  "+pair.getValue());
+20          }
+21          else System.out.println("Список пуст.");
+22      }
+23  }

@@ -1,0 +1,1 @@
+UPDATE Seaview SET idSeaview=value-1,Seaviewcol=value-2 WHERE 1

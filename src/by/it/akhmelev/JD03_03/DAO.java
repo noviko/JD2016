@@ -20,7 +20,7 @@ class DAO {
 
     //Create Update Delete
     static int executeUpdate(String sql) {
-        //System.out.println("--- SQL="+sql); //отладка
+        //System.out.println("--- Sql="+sql); //отладка
         int result = -1;
         try (Connection connection = Xampp.getConnection();
              Statement statement = connection.createStatement();) {
