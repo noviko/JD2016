@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="http://www.it-academy.by/xml/hospital"
+        targetNamespace="http://akhmelev.it-academy.by/xml/hospital"
         xmlns:tns="http://www.it-academy.by/xml/hospital"
         elementFormDefault="qualified">
     <element name="hospital">
