@@ -1,6 +1,6 @@
-package by.it.daylidovich.JD03_02;
+package by.it.daylidovich.JD03_02.C;
 
-import by.it.daylidovich.JD03_02.crud.CRUD_Users;
+import by.it.daylidovich.JD03_02.A_crud.CRUD_Users;
 
 import java.io.BufferedReader;
 import java.io.IOException;

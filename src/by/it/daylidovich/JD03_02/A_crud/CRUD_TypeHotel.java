@@ -1,4 +1,4 @@
-package by.it.daylidovich.JD03_02.crud;
+package by.it.daylidovich.JD03_02.A_crud;
 
 import by.it.daylidovich.JD03_01.ADB;
 
