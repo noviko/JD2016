@@ -6,49 +6,49 @@ import java.sql.Statement;
 public class CreatingUtils {
     public static void createTable(Statement statement) throws SQLException {
 
-        statement.executeUpdate("CREATE TABLE it-academy.role_d (\n" +
+        statement.executeUpdate("CREATE TABLE it_academy.role_d (\n" +
                 "id INT NOT NULL AUTO_INCREMENT,\n" +
                 "Role VARCHAR(50) NOT NULL,\n" +
                 "PRIMARY KEY (id))\n" +
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
 
-        statement.executeUpdate("CREATE TABLE it-academy.countries_d (\n" +
+        statement.executeUpdate("CREATE TABLE it_academy.countries_d (\n" +
                 "id INT AUTO_INCREMENT,\n" +
                 "Country VARCHAR(50) NOT NULL,\n" +
                 "PRIMARY KEY (id))\n" +
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
 
-        statement.executeUpdate("CREATE TABLE it-academy.transport_d (\n" +
+        statement.executeUpdate("CREATE TABLE it_academy.transport_d (\n" +
                 "id INT AUTO_INCREMENT,\n" +
                 "Transport VARCHAR(50) NOT NULL,\n" +
                 "PRIMARY KEY (id))\n" +
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
 
-        statement.executeUpdate("CREATE TABLE it-academy.type_tour_d (\n" +
+        statement.executeUpdate("CREATE TABLE it_academy.type_tour_d (\n" +
                 "id INT AUTO_INCREMENT,\n" +
                 "Type_tour VARCHAR(50) NOT NULL,\n" +
                 "PRIMARY KEY (id))\n" +
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
 
-        statement.executeUpdate("CREATE TABLE it-academy.type_hotel_d (\n" +
+        statement.executeUpdate("CREATE TABLE it_academy.type_hotel_d (\n" +
                 "id INT AUTO_INCREMENT,\n" +
                 "Type_hotel VARCHAR(50) NOT NULL,\n" +
                 "PRIMARY KEY (id))\n" +
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
 
-        statement.executeUpdate("CREATE TABLE it-academy.food_complex_d (\n" +
+        statement.executeUpdate("CREATE TABLE it_academy.food_complex_d (\n" +
                 "id INT AUTO_INCREMENT,\n" +
                 "Food_complex VARCHAR(50) NOT NULL,\n" +
                 "PRIMARY KEY (id))\n" +
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
 
-        statement.executeUpdate("CREATE TABLE it-academy.users_d (\n" +
+        statement.executeUpdate("CREATE TABLE it_academy.users_d (\n" +
                 "id INT AUTO_INCREMENT,\n" +
                 "Name VARCHAR(50) NOT NULL,\n" +
                 "Surname VARCHAR(50) NOT NULL,\n" +
@@ -66,7 +66,7 @@ public class CreatingUtils {
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
 
-        statement.executeUpdate("CREATE TABLE it-academy.tours_d (\n" +
+        statement.executeUpdate("CREATE TABLE it_academy.tours_d (\n" +
                 "id INT AUTO_INCREMENT,\n" +
                 "FK_country int(3) NOT NULL,\n" +
                 "FK_type_tour int(1) NOT NULL,\n" +
@@ -109,14 +109,14 @@ public class CreatingUtils {
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
 
-            statement.executeUpdate("CREATE TABLE it-academy.type_action_d (\n" +
+            statement.executeUpdate("CREATE TABLE it_academy.type_action_d (\n" +
                     "id INT AUTO_INCREMENT,\n" +
                     "Type_action VARCHAR(50) NOT NULL,\n" +
                     "PRIMARY KEY (id))\n" +
                     "ENGINE = InnoDB\n" +
                     "DEFAULT CHARACTER SET = utf8;\n");
 
-            statement.executeUpdate("CREATE TABLE it-academy.action_d (\n" +
+            statement.executeUpdate("CREATE TABLE it_academy.action_d (\n" +
                     "id INT AUTO_INCREMENT,\n" +
                     "FK_action int(3) NOT NULL,\n" +
                     "FK_user int(3) NOT NULL,\n" +
@@ -173,7 +173,7 @@ public class CreatingUtils {
         statement.executeUpdate("insert into type_tour(Type_tour)\n" +
                 "values\n" +
                 "('relaxing'),\n" +
-                "('travaling'),\n" +
+                "('traveling'),\n" +
                 "('shopping')");
 
         statement.executeUpdate("insert into type_hotel(Type_hotel)\n" +
