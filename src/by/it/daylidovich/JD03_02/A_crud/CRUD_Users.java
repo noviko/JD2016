@@ -11,7 +11,7 @@ public class CRUD_Users {
         System.out.println("Table Users:");
         ResultSet resultSet=statement.executeQuery("SELECT * FROM users_d;");
         while (resultSet.next()){
-            String out=resultSet.getInt("ID")+" "+resultSet.getString("Name") + " " + resultSet.getString("Surname") + " " + resultSet.getString("Email") + " " + resultSet.getString("Login") + " " + resultSet.getString("Password") + " " + resultSet.getInt("FK_Role");
+            String out=resultSet.getInt("id")+" "+resultSet.getString("Name") + " " + resultSet.getString("Surname") + " " + resultSet.getString("Email") + " " + resultSet.getString("Login") + " " + resultSet.getString("Password") + " " + resultSet.getInt("FK_Role");
             System.out.println(out);
         }
         connection.close();
@@ -24,7 +24,7 @@ public class CRUD_Users {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM users_d ORDER BY ID DESC LIMIT 1");
         System.out.print("Added row: ");
         while (resultSet.next()){
-            String out=resultSet.getInt("ID")+" "+resultSet.getString("Name") + " " + resultSet.getString("Surname") + " " + resultSet.getString("Email") + " " + resultSet.getString("Login") + " " + resultSet.getString("Password") + " " + resultSet.getInt("FK_Role");
+            String out=resultSet.getInt("id")+" "+resultSet.getString("Name") + " " + resultSet.getString("Surname") + " " + resultSet.getString("Email") + " " + resultSet.getString("Login") + " " + resultSet.getString("Password") + " " + resultSet.getInt("FK_Role");
             System.out.println(out);
         }
         connection.close();
@@ -37,7 +37,7 @@ public class CRUD_Users {
         ResultSet resultSet=statement.executeQuery("SELECT * FROM users_d WHERE id=" + id);
         System.out.print("changed: ");
         while (resultSet.next()){
-            String out=resultSet.getInt("ID")+" "+resultSet.getString("Name") + " " + resultSet.getString("Surname") + " " + resultSet.getString("Email") + " " + resultSet.getString("Login") + " " + resultSet.getString("Password") + " " + resultSet.getInt("FK_Role");
+            String out=resultSet.getInt("id")+" "+resultSet.getString("Name") + " " + resultSet.getString("Surname") + " " + resultSet.getString("Email") + " " + resultSet.getString("Login") + " " + resultSet.getString("Password") + " " + resultSet.getInt("FK_Role");
             System.out.println(out);
         }
         connection.close();

@@ -11,7 +11,7 @@ public class CRUD_Tours {
         System.out.println("Table Tours:");
         ResultSet resultSet=statement.executeQuery("SELECT * FROM tours_d;");
         while (resultSet.next()){
-            String out=resultSet.getInt("ID")+" "+resultSet.getInt("FK_country") + " " + resultSet.getInt("FK_type_tour") + " " + resultSet.getInt("FK_transport") + " " + resultSet.getInt("FK_type_hotel") + " " + resultSet.getInt("FK_food_complex") + " " + resultSet.getInt("Cost") + " " + resultSet.getInt("Discount");
+            String out=resultSet.getInt("id")+" "+resultSet.getInt("FK_country") + " " + resultSet.getInt("FK_type_tour") + " " + resultSet.getInt("FK_transport") + " " + resultSet.getInt("FK_type_hotel") + " " + resultSet.getInt("FK_food_complex") + " " + resultSet.getInt("Cost") + " " + resultSet.getInt("Discount");
             System.out.println(out);
         }
         connection.close();
@@ -24,7 +24,7 @@ public class CRUD_Tours {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM tours_d ORDER BY ID DESC LIMIT 1");
         System.out.print("Added row: ");
         while (resultSet.next()){
-            String out=resultSet.getInt("ID")+" "+resultSet.getInt("FK_country") + " " + resultSet.getInt("FK_type_tour") + " " + resultSet.getInt("FK_transport") + " " + resultSet.getInt("FK_type_hotel") + " " + resultSet.getInt("FK_food_complex") + " " + resultSet.getInt("Cost") + " " + resultSet.getInt("Discount");
+            String out=resultSet.getInt("id")+" "+resultSet.getInt("FK_country") + " " + resultSet.getInt("FK_type_tour") + " " + resultSet.getInt("FK_transport") + " " + resultSet.getInt("FK_type_hotel") + " " + resultSet.getInt("FK_food_complex") + " " + resultSet.getInt("Cost") + " " + resultSet.getInt("Discount");
             System.out.println(out);
         }
         connection.close();
@@ -37,7 +37,7 @@ public class CRUD_Tours {
         ResultSet resultSet=statement.executeQuery("SELECT * FROM tours_d WHERE id=" + id);
         System.out.print("changed: ");
         while (resultSet.next()){
-            String out=resultSet.getInt("ID")+" "+resultSet.getInt("FK_country") + " " + resultSet.getInt("FK_type_tour") + " " + resultSet.getInt("FK_transport") + " " + resultSet.getInt("FK_type_hotel") + " " + resultSet.getInt("FK_food_complex") + " " + resultSet.getInt("Cost") + " " + resultSet.getInt("Discount");
+            String out=resultSet.getInt("id")+" "+resultSet.getInt("FK_country") + " " + resultSet.getInt("FK_type_tour") + " " + resultSet.getInt("FK_transport") + " " + resultSet.getInt("FK_type_hotel") + " " + resultSet.getInt("FK_food_complex") + " " + resultSet.getInt("Cost") + " " + resultSet.getInt("Discount");
             System.out.println(out);
         }
         connection.close();
