@@ -18,8 +18,8 @@ public class Autocreate_DB {
             System.out.println("Row added.");
 
             //удаление таблицы USERS
-            CreatingUtils.deleteTable(statement);
-            System.out.println("Table deleted.");
+            //CreatingUtils.deleteTable(statement);
+            //System.out.println("Table deleted.");
 
         } catch (SQLException e) {
             e.printStackTrace();
