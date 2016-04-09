@@ -1,1 +1,1 @@
-create DATABASE travel_agency;
+create DATABASE it_academy;
