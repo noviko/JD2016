@@ -108,6 +108,40 @@ public class CreatingUtils {
                 "    ON UPDATE CASCADE)\n" +
                 "ENGINE = InnoDB\n" +
                 "DEFAULT CHARACTER SET = utf8;\n");
+
+            statement.executeUpdate("CREATE TABLE it-academy.type_action_d (\n" +
+                    "id INT AUTO_INCREMENT,\n" +
+                    "Type_action VARCHAR(50) NOT NULL,\n" +
+                    "PRIMARY KEY (id))\n" +
+                    "ENGINE = InnoDB\n" +
+                    "DEFAULT CHARACTER SET = utf8;\n");
+
+            statement.executeUpdate("CREATE TABLE it-academy.action_d (\n" +
+                    "id INT AUTO_INCREMENT,\n" +
+                    "FK_action int(3) NOT NULL,\n" +
+                    "FK_user int(3) NOT NULL,\n" +
+                    "FK_tour int(3) NOT NULL,\n" +
+                    "  PRIMARY KEY (id),\n" +
+                    "  INDEX FK_action_idx (id ASC),\n" +
+                    "  INDEX FK_user_idx (id ASC),\n" +
+                    "  INDEX FK_tour_idx (id ASC),\n" +
+                    "  CONSTRAINT FK_action\n" +
+                    "    FOREIGN KEY (FK_action)\n" +
+                    "    REFERENCES it-academy.type_action_d (id)\n" +
+                    "    ON DELETE CASCADE\n" +
+                    "    ON UPDATE CASCADE)\n" +
+                    "  CONSTRAINT FK_user\n" +
+                    "    FOREIGN KEY (FK_user)\n" +
+                    "    REFERENCES it-academy.users_d (id)\n" +
+                    "    ON DELETE CASCADE\n" +
+                    "    ON UPDATE CASCADE)\n" +
+                    "  CONSTRAINT FK_tour\n" +
+                    "    FOREIGN KEY (FK_tour)\n" +
+                    "    REFERENCES it-academy.tours_d (id)\n" +
+                    "    ON DELETE CASCADE\n" +
+                    "    ON UPDATE CASCADE)\n" +
+                    "ENGINE = InnoDB\n" +
+                    "DEFAULT CHARACTER SET = utf8;\n");
     }
 
     public static void deleteTable(Statement statement) throws SQLException {
@@ -119,6 +153,8 @@ public class CreatingUtils {
         statement.executeUpdate("DROP TABLE food_complex_d");
         statement.executeUpdate("DROP TABLE users_d");
         statement.executeUpdate("DROP TABLE tours_d");
+        statement.executeUpdate("DROP TABLE type_action_d");
+        statement.executeUpdate("DROP TABLE action_d");
     }
 
     public static void insertDataToTables(Statement statement) throws SQLException {
@@ -170,5 +206,9 @@ public class CreatingUtils {
                 "('Dmitry', 'Dailidovich', 'dmitry.dailidovich@gmail.com', 'Dolf23', '123', 1),\n" +
                 "('Ivan', 'Ivanov', 'Ivan.Ivanov@mail.ru', 'Ivan93', '1111', 2),\n" +
                 "('Anastasia', 'Poleschyk', 'nastia95@inbox.ru', 'Nastenka', '2306' , 2)");
+
+        statement.executeUpdate("insert into type_action_d(Type_action)\n" +
+                "('Discount')\n" +
+                "('Reserve')");
     }
 }
