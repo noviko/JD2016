@@ -8,7 +8,7 @@ public class CRUD_Users {
     public static void read() throws SQLException {
         Connection connection  = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
         Statement statement = connection.createStatement();
-        System.out.println("Table Users:");
+        System.out.println("Table User:");
         ResultSet resultSet=statement.executeQuery("SELECT * FROM users_d;");
         while (resultSet.next()){
             String out=resultSet.getInt("id")+" "+resultSet.getString("Name") + " " + resultSet.getString("Surname") + " " + resultSet.getString("Email") + " " + resultSet.getString("Login") + " " + resultSet.getString("Password") + " " + resultSet.getInt("FK_Role");
