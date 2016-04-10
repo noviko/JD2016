@@ -1,4 +1,4 @@
-package by.it.Baranova.JD04_01;
+package projects.baranova.servlets;
 
 
 import javax.servlet.ServletException;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-public class HelloWorld extends HttpServlet {
+public class hello extends HttpServlet {
 
     @Override
     protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
