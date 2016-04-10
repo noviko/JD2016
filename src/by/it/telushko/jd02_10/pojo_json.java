@@ -6,7 +6,7 @@ import com.google.gson.GsonBuilder;
 /**
  * Created by Владимир on 03.04.2016.
  */
-public class POJO_JSON {
+public class pojo_json {
     public static void main(String [] args){
         Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
         String[] contacts = {"number","email","address"};

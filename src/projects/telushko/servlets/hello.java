@@ -1,4 +1,4 @@
-package projects.akhmelev.servlets;
+package projects.telushko.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +12,7 @@ public class hello extends HttpServlet {
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             PrintWriter out = resp.getWriter();
             out.println("Hello world");
-            out.flush(); //ВАЖНО! Иначе вывод будет неустойчивым...
+            out.flush();
 
         }
 }
