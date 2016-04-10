@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DAO<TYPE> {
+public class DAO {
 
     private static Connection connection;
     private static Statement statement;
@@ -19,10 +19,6 @@ public class DAO<TYPE> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public static Connection getConnection() {
-        return connection;
     }
 
     public static Statement getStatement() {
