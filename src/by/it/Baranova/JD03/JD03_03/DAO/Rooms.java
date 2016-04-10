@@ -53,8 +53,7 @@ public class Rooms {
     public String toString() {
         String res="";
         try {
-
-            res="User{" +
+            res="Room{" +
                     "id=" + idRooms +
                     ", Number of room='" + RoomNumber + '\'' +
                     ", guestquantity='" + GuestQuantity + '\'' +
@@ -63,7 +62,7 @@ public class Rooms {
                     ", seaview='"+new SeaviewDAO().getSeaview(FKSeaview)+'\''+
                     ", floor='" + Floor + '\'' +
                     ", price=" + Price +'\'' +
-                    ", number of order="+FKOrderNumber+
+                    ", number of order="+new OrdersDAO().read(FKOrderNumber)+
                     '}';
         } catch (SQLException e) {
             res=e.toString();

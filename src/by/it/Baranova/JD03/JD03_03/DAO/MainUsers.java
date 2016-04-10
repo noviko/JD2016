@@ -27,8 +27,8 @@ public class MainUsers {
         }
         System.out.println();
 
-        /*showUsers();
-
+        showUsers();
+/*
         Users users=new Users("PashkaT","12345","Pavel","Tyshkevich","+375293456564","pt@tut.by");
         users.setIdUsers(0);
         users.setFKRole(2);

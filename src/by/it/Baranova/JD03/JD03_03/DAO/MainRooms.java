@@ -34,7 +34,7 @@ public class MainRooms {
         }
 
         showRooms();
-
+/*
         Rooms rooms=new Rooms("R07",1,1,6,2,3,65);
         rooms.setIdRooms(7);
         rooms.setFKOrderNumber(0);
@@ -51,6 +51,6 @@ public class MainRooms {
 
         //удалим пользователя
         if (roomsDAO.delete(rooms)) System.out.println("\nУдален:" + rooms);
-        showRooms();
+        showRooms();*/
     }
 }
