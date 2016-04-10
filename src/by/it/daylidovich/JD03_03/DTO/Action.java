@@ -1,6 +1,8 @@
 package by.it.daylidovich.JD03_03.DTO;
 
+import by.it.daylidovich.JD03_03.DAO.ToursDAO;
 import by.it.daylidovich.JD03_03.DAO.TypeActionDAO;
+import by.it.daylidovich.JD03_03.DAO.UsersDAO;
 
 import java.sql.SQLException;
 
@@ -45,8 +47,8 @@ public class Action {
             outString = "Action{" +
                     "id=" + id +
                     ", fk_action=" + TypeActionDAO.getTypeAction(fk_action) +
-                    ", fk_user=" + fk_user +
-                    ", fk_tour=" + fk_tour +
+                    ", fk_user=" + new UsersDAO().read(fk_user) +
+                    ", fk_tour=" + new ToursDAO().read(fk_tour) +
                     '}';
         } catch (SQLException e) {
             e.printStackTrace();

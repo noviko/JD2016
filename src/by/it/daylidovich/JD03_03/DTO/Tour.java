@@ -7,7 +7,7 @@ import by.it.daylidovich.JD03_03.DAO.TypeTourDAO;
 
 import java.sql.SQLException;
 
-public class Tours {
+public class Tour {
     private int id;
     private int fk_country;
     private int fk_type_tour;
@@ -77,7 +77,7 @@ public class Tours {
     public String toString() {
         String outString = "";
         try {
-            outString = "Tours{" +
+            outString = "Tour{" +
                     "id=" + id +
                     ", fk_country=" + CountreisDAO.getCountry(fk_country) +
                     ", fk_type_tour=" + TypeTourDAO.getTypeTour(fk_type_tour) +

@@ -12,7 +12,7 @@ public class UsersDAO extends DAO implements IDAO<User> {
     @Override
     public List<User> getAll(String where){
         List<User> users = new ArrayList<>();
-        String sql = String.format("SELECT * FROM users %s;", where);
+        String sql = String.format("SELECT * FROM users_d %s;", where);
         Statement statement = DAO.getStatement();
         ResultSet resultSet;
         try {
@@ -45,7 +45,7 @@ public class UsersDAO extends DAO implements IDAO<User> {
 
     @Override
     public boolean create(User user) {
-        String sql = String.format("insert INTO users(Name, Surname, Email, Login, Password, FK_Role)" +
+        String sql = String.format("insert INTO users_d(Name, Surname, Email, Login, Password, FK_Role)" +
                 " values('%s', '%s', '%s', '%s', '%s', %d);",
                 user.getName(), user.getSurname(), user.getEmail(), user.getLogin(), user.getPassword(), user.getFk_Role());
         return 0 < executeUpdate(sql);
@@ -53,14 +53,14 @@ public class UsersDAO extends DAO implements IDAO<User> {
 
     @Override
     public boolean update(User user) {
-        String sql = String.format("UPDATE users_d SET Name='%s',  Surname='%s',  Email='%s',  Login='%s',  Password='%s',  FK_Role='%d' WHERE id=%d",
+        String sql = String.format("UPDATE users_d SET Name='%s',  Surname='%s',  Email='%s',  Login='%s',  Password='%s',  FK_Role=%d WHERE id=%d",
                 user.getName(), user.getSurname(), user.getEmail(), user.getLogin(), user.getPassword(), user.getFk_Role(), user.getId());
         return 0 < executeUpdate(sql);
     }
 
     @Override
     public boolean delete(User user) {
-        String sql = String.format("DELETE FROM users WHERE id = %d;", user.getId());
+        String sql = String.format("DELETE FROM users_d WHERE id = %d;", user.getId());
         return 0 < executeUpdate(sql);
     }
 }

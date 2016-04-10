@@ -25,18 +25,23 @@ public class DAO {
         return statement;
     }
 
-    static DAO getDAO() {
+    public static DAO getDAO() {
         if (dao == null) {
             dao = new DAO();
         }
         return dao;
     }
 
-    static void closeDAO() {
-        dao = null;
+    public static void closeDAO() {
+        try {
+            connection.close();
+            dao = null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    static int executeUpdate(String sql){
+    public static int executeUpdate(String sql){
         int result = -1;
         try {
             result = statement.executeUpdate(sql);
