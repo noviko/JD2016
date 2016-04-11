@@ -19,7 +19,7 @@ public class Xampp {
 
     public static Connection getConnection() throws SQLException {
         //стандартный порт 3306
-        final String URL3306 = "jdbc:mysql://127.0.0.1:3306/it_academy"
+        final String URL3306 = "jdbc:mysql://127.0.0.1:2016/it_academy"
         /*добавим UTF-8*/ + "?useUnicode=true&characterEncoding=UTF-8";
         /*хотя достаточно было бы и так    +"?characterEncoding=UTF-8"; */
         return getConnection(URL3306, USER, PASSWORD);

@@ -13,7 +13,7 @@ public class RoleDAO extends DAO{
     Integer getID(String strRole) throws SQLException {
         //Read
         Integer res = null;
-        String sql = "SELECT ID FROM fk_roles WHERE role=`" + strRole + "`;";
+        String sql = "SELECT ID FROM it_academy.fk_roles WHERE role=`" + strRole + "`;";
         try (Connection connection = Xampp.getConnection();
              Statement statement = connection.createStatement();) {
             ResultSet rs = statement.executeQuery(sql);
@@ -27,7 +27,7 @@ public class RoleDAO extends DAO{
     String getRole(Integer id) throws SQLException {
         //Read
         String res = null;
-        String sql = "SELECT * FROM fk_roles WHERE id=" + id + ";";
+        String sql = "SELECT * FROM it_academy.fk_roles WHERE id=" + id + ";";
         try (Connection connection = Xampp.getConnection();
              Statement statement = connection.createStatement();) {
             ResultSet rs = statement.executeQuery(sql);
