@@ -1,8 +1,9 @@
-<project name="AppBuilder" default="DeployToXampp" basedir="..">
+<project name="akhmelev" default="DeployToXampp" basedir="..">
 <property file="ant/build.properties"/>
 
     <path id="classpath">
-        <fileset dir="${lib.dir}" includes="servlet-api.jar"/>
+        <fileset dir="${global.lib.dir}" includes="mysql-connector-java-5.1.38.jar" />
+        <fileset dir="${global.lib.dir}" includes="servlet-api.jar"/>
     </path>
     <!-- очистка рабочего каталога -->
     <target name="01clean">
@@ -21,7 +22,7 @@
     <target name="03compile" depends="02init">
         <echo>Compile the source files</echo>
         <javac srcdir="${src.dir}" destdir="${build.dir}/WEB-INF/classes">
-            <classpath refid="classpath"/>
+            <classpath  refid="classpath" />
         </javac>
     </target>
 
@@ -34,7 +35,7 @@
             <fileset dir="${web.content}"/>
         </copy>
         <copy todir="${build.dir}/WEB-INF/lib">
-            <fileset dir="${lib.dir}"/>
+            <fileset dir="${local.lib.dir}"/>
         </copy>
     </target>
 
@@ -54,9 +55,14 @@
 
     <!-- копирование в каталог Tomcat -->
     <target name="DeployToXampp" depends="06finalize">
+        <echo>Cleaning the ${tomcat.webapps}/${web.root}</echo>
+        <delete dir="${tomcat.webapps}/${web.root}"/>
+
+        <echo>Deploy ${tomcat.webapps}/${web.root}.war</echo>
         <copy todir="${tomcat.webapps}">
             <fileset file="${dist.dir}/${web.root}.war"/>
         </copy>
     </target>
+
 
 </project>
