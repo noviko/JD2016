@@ -5,6 +5,11 @@
          version="3.0"
          metadata-complete="true">
 
+    <description>
+        akhmelev: Демо-проект, дополнение к презентационным материалам.
+    </description>
+
+    <display-name>akhmelev: demo к презентации</display-name>
     <servlet>
         <servlet-name>hello</servlet-name>
         <servlet-class>projects.akhmelev.servlets.hello</servlet-class>
@@ -12,6 +17,15 @@
     <servlet-mapping>
         <servlet-name>hello</servlet-name>
         <url-pattern>/hello/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>User</servlet-name>
+        <servlet-class>projects.akhmelev.servlets.UserForm</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>User</servlet-name>
+        <url-pattern>/newuser</url-pattern>
     </servlet-mapping>
 
 </web-app>
