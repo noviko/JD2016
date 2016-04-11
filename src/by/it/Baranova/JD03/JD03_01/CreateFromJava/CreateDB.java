@@ -13,7 +13,7 @@ public class CreateDB {
 
             int count=statement.executeUpdate("CREATE DATABASE HotelJava");
             System.out.println("Schema 'HotelJava' created");
-            //statement.executeUpdate("drop database HotelJava");
+            statement.executeUpdate("drop database HotelJava");
             connection.close();
         } catch (Exception e){
             e.printStackTrace();
