@@ -73,9 +73,9 @@ public class Fill_db {
                 System.out.println(out);
             }
 
-            System.out.println("База даннных создана и заполнена служебной информацией(роли людей, виды работ, отзывов и т.д\nвведите что угодно и БД будет удалена)");
-            InOut.consoleLineInput();
-            statement.executeUpdate("DROP DATABASE it_academy");
+           System.out.println("\nБаза даннных создана и заполнена служебной информацией(роли людей, виды работ, отзывов и т.д\n...введите что угодно и БД будет удалена)");
+           InOut.consoleLineInput();
+           statement.executeUpdate("DROP DATABASE it_academy");
         }
         catch (Exception e){
             e.printStackTrace();

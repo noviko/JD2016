@@ -26,13 +26,13 @@ public class Run {
         showAccounts();
 
         Account account = new Account("Nikolay", "niklogin", "12345678pass");
-        account.setId(0);         //это в принципе лишнее, т.к. есть в конструкторе
-        account.setFk_role(2);    //это в принципе лишнее, т.к. есть в конструкторе
+        account.setId(0);
+        account.setFk_role(2);
         //добавим пользователя
         if (accountDAO.create(account)) System.out.println("\nДобавлен:" + account);
         showAccounts();
 
-        //извлечем и обновим пользователя с email siivanov@mail.ru
+        //извлечем и обновим пользователя
         account = accountDAO.getAll("WHERE id>2").get(0);
         account.setLogin("NIKLOGIN");
         if (accountDAO.update(account)) System.out.println("\nИзменен:" + account);
