@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  * Log out
- * 
+ *
  */
 public class log_out extends HttpServlet {
 

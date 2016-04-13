@@ -91,11 +91,13 @@ public class FilterAuth implements Filter {
         String password="";
 
         PrintWriter out = resp.getWriter();
+
+        out.println(login+" - "+password);
         for (Cookie myCookie : myCookies) {
             out.println(myCookie.getName()+" - "+myCookie.getValue());
-        }*/
+        }
 
-        /*for (Cookie cookie : myCookies) {
+        for (Cookie cookie : myCookies) {
             if (cookieName.equals(cookie.getName())){
                 login = cookie.getValue();
             }
