@@ -40,41 +40,48 @@ public class FilterAuth implements Filter {
         HttpServletResponse resp = (HttpServletResponse) response;
 
         HttpSession session = req.getSession();
-        Object attr = session.getAttribute("auth");
+        if (session == null)
+            resp.sendRedirect("/chatovich/login.html");
+        else {
 
-        if (attr!=null&&attr!=(Boolean)true){
-            Cookie[] myCookies = req.getCookies();
+            Object attr = session.getAttribute("auth");
 
-            String cookieName = "login";
-            String cookiePassword = "Password";
+            if (attr==(Boolean)true)
+                resp.sendRedirect("/");
+            else{
+                Cookie[] myCookies = req.getCookies();
 
-            String login="";
-            String password="";
+                String cookieName = "login";
+                String cookiePassword = "Password";
 
-            for(int i = 0; i < myCookies.length; i++) {
+                String login="";
+                String password="";
 
-                Cookie cookie = myCookies[i];
-                if (cookieName.equals(cookie.getName())){
-                    login = cookie.getValue();
+                for (Cookie cookie : myCookies) {
+
+                    if (cookieName.equals(cookie.getName())){
+                        login = cookie.getValue();
+                    }
+                    if (cookiePassword.equals(cookie.getName())){
+                        password = cookie.getValue();
+                    }
                 }
-                if (cookiePassword.equals(cookie.getName())){
-                    password = cookie.getValue();
-                }
-            }
-
-            UserDAO userDAO = new UserDAO();
-            HashMap<Integer, User> users = null;
+                UserDAO userDAO = new UserDAO();
+                HashMap<Integer, User> users = new HashMap<>();
 
                 try {
-
                     users = userDAO.getAll("where login = '"+login+"' and password = '"+password+"';");
-
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            if (users.size()==1) {
 
+                if (users.size()==0) {
+                    resp.sendRedirect("/chatovich/login.html");
+
+                }
+                else resp.sendRedirect("/");
             }
+
 
         }
 

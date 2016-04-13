@@ -51,4 +51,17 @@
         <url-pattern>/tologin/</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>authF</filter-name>
+        <filter-class>projects.chatovich.servlets.FilterAuth</filter-class>
+        <init-param>
+            <param-name>authF</param-name>
+            <param-value>FilterAuth</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>authF</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
 </web-app>
