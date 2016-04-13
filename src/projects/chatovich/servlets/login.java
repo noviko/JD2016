@@ -50,16 +50,17 @@ public class login extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        HttpSession session = req.getSession();
+
         if (users.size()==1) {
+            HttpSession session = req.getSession(true);
             Cookie logCookie = new Cookie("login",login);
             resp.addCookie(logCookie);
             Cookie pasCookie = new Cookie("password",password);
             resp.addCookie(pasCookie);
             session.setAttribute("auth",(Boolean)true);
+            session.setAttribute("login", login);
             resp.sendRedirect("/chatovich/index.jsp");
-        }
-        else{
+        } else {
             resp.sendRedirect("/chatovich/loginTryAgain.jsp");
 
         }
