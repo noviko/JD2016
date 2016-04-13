@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -46,8 +47,12 @@ public class FilterAuth implements Filter {
 
             Object attr = session.getAttribute("auth");
 
-            if (attr==(Boolean)true)
-                resp.sendRedirect("/");
+            if (attr==(Boolean)true) {
+                String URI = req.getRequestURI();
+                //resp.sendRedirect(req.getRequestURI());
+                PrintWriter out = resp.getWriter();
+                out.println(URI);
+            }
             else{
                 Cookie[] myCookies = req.getCookies();
 
@@ -79,7 +84,7 @@ public class FilterAuth implements Filter {
                     resp.sendRedirect("/chatovich/login.html");
 
                 }
-                else resp.sendRedirect("/");
+                //else resp.sendRedirect("/");
             }
 
 
