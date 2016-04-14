@@ -24,6 +24,21 @@ import java.util.Date;
  */
 public class reg extends HttpServlet{
 
+    /*public static void main(String[] args) {
+
+        String city = "z";
+        try{
+            CityDAO cityDAO = new CityDAO();
+            //если такого города в базе ещё нет
+            boolean b = cityDAO.isInDB(city);
+            System.out.println(b);
+            if (!b)
+                cityDAO.create(city);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
+
     /*public static void main(String[] args) throws SQLException {
         User user=new User();
         try{
@@ -69,7 +84,10 @@ public class reg extends HttpServlet{
 
         try{
             CityDAO cityDAO = new CityDAO();
-            cityDAO.create(city);
+            //если такого города в базе ещё нет
+            boolean b = cityDAO.isInDB(city);
+            if (!b)
+                cityDAO.create(city);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -101,7 +119,7 @@ public class reg extends HttpServlet{
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/chatovich/search.html");
+        resp.sendRedirect("/chatovich/index.jsp");
     }
 
     /*@Override
