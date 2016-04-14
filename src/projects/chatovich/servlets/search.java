@@ -25,26 +25,23 @@ public class search extends HttpServlet{
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
-        PrintWriter out = resp.getWriter();
-        out.println("ok");
+
         String city = req.getParameter("city");
-        out.println(city);
+
         HashMap <Integer, User> users;
 
         try{
             CityDAO cityDAO = new CityDAO();
             int id_city = cityDAO.getId(city);
-            out.println(id_city);
+
             UserDAO userDAO = new UserDAO();
             users = userDAO.getAll("where id_city = '"+id_city+"';");
-            for (Map.Entry<Integer, User> entry : users.entrySet()) {
-                out.println(entry.getValue());
-            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        out.flush();
+        
 
 
     }
