@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * servlet for registration
@@ -81,6 +82,8 @@ public class reg extends HttpServlet{
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
         String city = req.getParameter("city");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
 
         try{
             CityDAO cityDAO = new CityDAO();
@@ -95,13 +98,20 @@ public class reg extends HttpServlet{
         User user = new User();
         try{
             CityDAO cityDAO = new CityDAO();
-            if (Utils.checkRegex(name))
+            UserDAO userDAO = new UserDAO();
+            /*if (Utils.checkRegex(name))
                 user.setName(name);
             if (Utils.checkRegex(surname))
-                user.setSurname(surname);
+                user.setSurname(surname);*/
+
+            //проверяем есть ли в базе пользователь с таким логином и паролем
+            HashMap<Integer, User> users = new HashMap<>();
+            users = userDAO.getAll("where login = '"+login+"' and password = '"+password+"';");
+
+
             user.setEmail(req.getParameter("email"));
-            user.setPassword(req.getParameter("password"));
-            user.setCity(cityDAO.getId(req.getParameter("city")));
+            user.setPassword(password);
+            user.setCity(cityDAO.getId(city));
 
             //конвертируем строку, полученную от пользователя, в timestamp
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -110,9 +120,9 @@ public class reg extends HttpServlet{
 
             user.setBirthdate(timestamp);
             user.setDescribtion(req.getParameter("describtion"));
-            user.setLogin(req.getParameter("login"));
+            user.setLogin(login);
 
-            UserDAO userDAO = new UserDAO();
+
             userDAO.create(user);
 
         } catch (Exception e){
