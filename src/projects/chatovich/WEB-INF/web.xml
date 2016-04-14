@@ -75,6 +75,7 @@
     <filter-mapping>
         <filter-name>authF</filter-name>
         <url-pattern>/search.jsp</url-pattern>
+        <url-pattern>/userProfile.jsp</url-pattern>
     </filter-mapping>
 
 

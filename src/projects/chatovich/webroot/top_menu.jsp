@@ -25,12 +25,13 @@
             <div class="container">
             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="login.jsp" class="">Log in</a></li>
-                                    <li><a href="register.jsp">Register</a></li>
-                                    <li><a href="search.jsp" class="">Search</a></li>
+                                    <li><a href="login.jsp" class="menu">Log in</a></li>
+                                    <li><a href="register.jsp" class="menu">Register</a></li>
+                                    <li><a href="search.jsp" class="menu">Search</a></li>
+                                    <li><a href="userProfile.jsp" class="menu">My Profile</a></li>
                                 </ul>
             </div>
+            </div>
+        </nav>
     </div>
-    </nav>
-                                                                </div>
-                                                            </div>
+</div>
