@@ -52,6 +52,19 @@
     </servlet-mapping>
 
     <filter>
+        <filter-name>codeF</filter-name>
+        <filter-class>projects.chatovich.servlets.FilterCode</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>codeF</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
         <filter-name>authF</filter-name>
         <filter-class>projects.chatovich.servlets.FilterAuth</filter-class>
         <init-param>
@@ -63,5 +76,7 @@
         <filter-name>authF</filter-name>
         <url-pattern>/search.html</url-pattern>
     </filter-mapping>
+
+
 
 </web-app>

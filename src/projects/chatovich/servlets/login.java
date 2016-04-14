@@ -59,7 +59,7 @@ public class login extends HttpServlet {
             Cookie logCookie = new Cookie("login",login);
             logCookie.setMaxAge(60*60*24);
             resp.addCookie(logCookie);
-            out.print(logCookie+"213");
+
             Cookie pasCookie = new Cookie("password",password);
             pasCookie.setMaxAge(60*60*24);
             resp.addCookie(pasCookie);
