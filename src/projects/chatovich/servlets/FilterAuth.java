@@ -40,7 +40,7 @@ public class FilterAuth implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        HttpSession session = req.getSession(true);
+        HttpSession session = req.getSession();
         if (session == null) {
             resp.sendRedirect("/chatovich/login.jsp");
         }

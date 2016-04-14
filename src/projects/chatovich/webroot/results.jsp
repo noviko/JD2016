@@ -1,6 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ include file="top_menu.jsp" %>
 
+
 <div class="heading">
 <div class="containerRes">
 
@@ -16,7 +17,7 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-12 col-md-6 excerpet">
-				<h3><a href="#" title="">Name Surname, Age</a></h3>
+				<h3><a href="#" title="">jk </a></h3>
 
 			</div>
 			<span class="clearfix borda"></span>

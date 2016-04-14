@@ -55,7 +55,7 @@ public class login extends HttpServlet {
         //out.println(users.get(0));
 
         if (users.size()==1) {
-            HttpSession session = req.getSession(true);
+            HttpSession session = req.getSession();
             Cookie logCookie = new Cookie("login",login);
             logCookie.setMaxAge(60*60*24);
             resp.addCookie(logCookie);

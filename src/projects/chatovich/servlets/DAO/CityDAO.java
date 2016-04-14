@@ -17,7 +17,7 @@ public class CityDAO extends DAO {
 
     public  Integer getId (String city) throws SQLException {
 
-        Integer res = null;
+        Integer res = 0;
         String sql = "SELECT * FROM cities WHERE city='" + city + "';";
         /*try (Connection connection = DriverManager.getConnection(CN.URL_DB, CN.USER_DB, CN.PASSWORD_DB);
              Statement statement = connection.createStatement()) {*/
