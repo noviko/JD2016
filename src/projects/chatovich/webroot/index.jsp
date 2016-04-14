@@ -22,7 +22,7 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="login.html" class="">Log in</a></li>
                                     <li><a href="register.jsp">Register</a></li>
-                                    <li><a href="search.html" class="">Search</a></li>
+                                    <li><a href="search.jsp" class="">Search</a></li>
                                 </ul>
             </div>
             </div>
