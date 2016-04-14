@@ -65,10 +65,17 @@ public class reg extends HttpServlet{
 
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
+        String city = req.getParameter("city");
+
+        try{
+            CityDAO cityDAO = new CityDAO();
+            cityDAO.create(city);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         User user = new User();
         try{
-
             CityDAO cityDAO = new CityDAO();
             if (Utils.checkRegex(name))
                 user.setName(name);

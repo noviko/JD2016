@@ -3,6 +3,9 @@ package projects.chatovich.servlets.DAO;
 
 
 
+import projects.chatovich.servlets.JD03_02.DB_it_academy.City;
+import projects.chatovich.servlets.JD03_02.DB_it_academy.User;
+
 import java.sql.*;
 
 
@@ -41,6 +44,12 @@ public class CityDAO extends DAO {
             e.printStackTrace();
         }*/
         return res;
+    }
+
+    public boolean create(String city) throws SQLException {
+        String sql = String.format("insert into cities (city) values ('%s' );", city);
+
+        return (0 < executeUpdate(sql));
     }
 
 

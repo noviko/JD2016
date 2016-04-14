@@ -9,9 +9,9 @@ import java.io.IOException;
  * Filter for encodings
  */
 
-@WebFilter(urlPatterns = {"/*"},
+/*@WebFilter(urlPatterns = {"*//*"},
         initParams = {
-                @WebInitParam(name = "encoding", value = "UTF-8", description = "Encoding Param")})
+                @WebInitParam(name = "encoding", value = "UTF-8", description = "Encoding Param")})*/
 
 public class FilterCode implements Filter {
 
@@ -19,6 +19,8 @@ public class FilterCode implements Filter {
 
     public void init(FilterConfig fConfig) throws ServletException {
         code = fConfig.getInitParameter("encoding");
+        if (code==null)
+            code="UTF-8";
     }
 
     public void doFilter(ServletRequest request, ServletResponse response,
