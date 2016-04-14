@@ -33,23 +33,20 @@
 
 <div class="container">
 
-  <div class="row" >
-<h1></h1>
-<h1></h1>
-<h1></h1>
-<h1></h1>
+  <div class="row" style="padding-top:70px;">
+
     <div class="col-md-4 col-md-push-4">
-      <div class="alert alert-danger">B</div>
+      <div class="alert alert-danger">Contact them and arrange a meeting</div>
       <img class="img-responsive img-circle" src="https://farm1.staticflickr.com/1/2759520_6dea8b9007.jpg" alt="Greece-1173 - Temple of Athena by Dennis Jarvis, on Flickr">
     </div>
 
     <div class="col-md-4 col-md-pull-4 ">
-      <div class="alert alert-info">A</div>
+      <div class="alert alert-info">Find hosts in the city you wanna travel</div>
       <img class="img-responsive img-circle" src="https://farm2.staticflickr.com/1109/809710325_4289dc484e.jpg" alt="Greece-1173 - Temple of Athena by Dennis Jarvis, on Flickr">
     </div>
 
     <div class="col-md-4">
-      <div class="alert alert-success">C</div>
+      <div class="alert alert-success">Have fun with your new friends</div>
       <img class="img-responsive img-circle" src="https://farm3.staticflickr.com/2353/2216602404_679d01cd4b.jpg" alt="Greece-1173 - Temple of Athena by Dennis Jarvis, on Flickr">
     </div>
 

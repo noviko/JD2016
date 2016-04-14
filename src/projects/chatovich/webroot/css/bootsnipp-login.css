@@ -1,8 +1,12 @@
 .wrapper {
-	margin-top: 150px;
+	margin-top: 90px;
 	margin-bottom: 20px;
 	margin-left: 300px;
 	margin-right: 300px;
+}
+
+.heading {
+    margin-top: 500px;
 }
 
 .form-signin {
