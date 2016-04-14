@@ -74,7 +74,7 @@
     </filter>
     <filter-mapping>
         <filter-name>authF</filter-name>
-        <url-pattern>/search.html</url-pattern>
+        <url-pattern>/search.jsp</url-pattern>
     </filter-mapping>
 
 

@@ -13,7 +13,7 @@ public class tologin extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/chatovich/login.html");
+        resp.sendRedirect("/chatovich/login.jsp");
         /*PrintWriter out = resp.getWriter();
         out.println("<script>window.location.href = \"/chatovich/register.jsp\";</script>");
         resp.setIntHeader("Refresh", 0);*/

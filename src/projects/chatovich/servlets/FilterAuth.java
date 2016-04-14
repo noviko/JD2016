@@ -42,7 +42,7 @@ public class FilterAuth implements Filter {
 
         HttpSession session = req.getSession(true);
         if (session == null) {
-            resp.sendRedirect("/chatovich/login.html");
+            resp.sendRedirect("/chatovich/login.jsp");
         }
         else {
 
@@ -76,7 +76,7 @@ public class FilterAuth implements Filter {
                     e.printStackTrace();
                 }
                 if (users.size()==0) {
-                    resp.sendRedirect("/chatovich/login.html");
+                    resp.sendRedirect("/chatovich/login.jsp");
                 }
                 else {
                     filterChain.doFilter(request,response);
@@ -114,7 +114,7 @@ public class FilterAuth implements Filter {
             e.printStackTrace();
         }
         if (users.size()==0) {
-            resp.sendRedirect("/chatovich/login.html");
+            resp.sendRedirect("/chatovich/login.jsp");
         }
         else {
             filterChain.doFilter(request,response);
