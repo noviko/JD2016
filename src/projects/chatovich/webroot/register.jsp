@@ -1,13 +1,19 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ include file="top_menu.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>"
 
 <form name = "register" action="register" method="POST" class="form-horizontal" onSubmit="return validate(this)">
 
 <div class = "container">
         <div class="wrapper">
             <form action="" method="post" name="Login_Form" class="form-signin">
+<c:if test="${loginExists}">
+                                <h3 class="form-signin-heading1">There is already a user with these login and password<br>Please try again</h3>
+                            </c:if>
                 <h3 class="form-signin-heading">Fill the registration form</h3>
                 <hr class="colorgraph"><br>
+
+
 
 
                 <input type="text" class="form-control" name="name" placeholder="First name" required="" autofocus="" />

@@ -23,6 +23,7 @@ public class User {
     int city;
     String describtion;
     int id;
+    int age;
 
     public User(String name, String surname, String login, String password, Timestamp birthdate, int role,
                 String email, int city, String describtion) {
@@ -119,6 +120,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override

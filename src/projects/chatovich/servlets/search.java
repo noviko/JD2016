@@ -3,6 +3,7 @@ package projects.chatovich.servlets;
 import projects.chatovich.servlets.DAO.CityDAO;
 import projects.chatovich.servlets.DAO.UserDAO;
 import projects.chatovich.servlets.JD03_02.DB_it_academy.User;
+import projects.chatovich.servlets.Utils.Utils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -53,11 +55,14 @@ public class search extends HttpServlet{
             e.printStackTrace();
         }
 
-            List<User> list = new ArrayList<>();
+        List<User> list = new ArrayList<>();
         User user = new User();
             for (Map.Entry<Integer, User> entry : users.entrySet()) {
                 user = entry.getValue();
                 //req.setAttribute("name",user.getName());
+                Timestamp birthdate = user.getBirthdate();
+                int age = Utils.getUserAge(birthdate);
+                user.setAge(age);
                 list.add(user);
             }
 

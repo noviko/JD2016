@@ -78,6 +78,8 @@ public class reg extends HttpServlet{
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
+        req.setAttribute("loginExists",false);
+        req.setAttribute("l",false);
 
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
@@ -107,8 +109,14 @@ public class reg extends HttpServlet{
             //проверяем есть ли в базе пользователь с таким логином и паролем
             HashMap<Integer, User> users = new HashMap<>();
             users = userDAO.getAll("where login = '"+login+"' and password = '"+password+"';");
+            if (!users.isEmpty()){
+                req.setAttribute("loginExists",true);
+                req.getRequestDispatcher("/register.jsp").forward(req,resp);
+            }
 
 
+            user.setName(name);
+            user.setSurname(surname);
             user.setEmail(req.getParameter("email"));
             user.setPassword(password);
             user.setCity(cityDAO.getId(city));

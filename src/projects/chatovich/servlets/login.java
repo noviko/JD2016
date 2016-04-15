@@ -3,12 +3,14 @@ package projects.chatovich.servlets;
 
 import projects.chatovich.servlets.DAO.UserDAO;
 import projects.chatovich.servlets.JD03_02.DB_it_academy.User;
+import projects.chatovich.servlets.Utils.Utils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,7 +57,15 @@ public class login extends HttpServlet {
         //out.println(users.get(0));
 
         if (users.size()==1) {
+            User user = new User();
+            for (Map.Entry<Integer, User> entry : users.entrySet()) {
+                user = entry.getValue();
+                Timestamp birthdate = user.getBirthdate();
+                int age = Utils.getUserAge(birthdate);
+                user.setAge(age);
+            }
             HttpSession session = req.getSession();
+            session.setAttribute("user",user);
             Cookie logCookie = new Cookie("login",login);
             logCookie.setMaxAge(60*60*24);
             resp.addCookie(logCookie);
@@ -66,10 +76,7 @@ public class login extends HttpServlet {
             session.setAttribute("auth",(Boolean)true);
             session.setAttribute("login", login);
             //resp.sendRedirect("/chatovich/index.jsp");
-            User user = new User();
-            for (Map.Entry<Integer, User> entry : users.entrySet()) {
-                user = entry.getValue();
-            }
+
             req.setAttribute("user",user);
             req.getRequestDispatcher("/index.jsp").forward(req,resp);
 

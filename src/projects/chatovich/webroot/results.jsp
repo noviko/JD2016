@@ -28,7 +28,7 @@
             			</div>
 
             			<div class="col-xs-12 col-sm-12 col-md-6 excerpet">
-            				<h3><a href="#" title="">${user.name} ${user.surname} </a></h3>
+            				<h3><a href="#" title="">${user.name} ${user.surname}, ${user.age} years old</a></h3>
             				<h4>${city}</h4>
             				<h4>${user.email}</h4>
             				<p>${user.describtion}</p>
