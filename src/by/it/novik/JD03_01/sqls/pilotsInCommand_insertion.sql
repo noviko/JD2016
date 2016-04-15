@@ -1,0 +1,1 @@
+insert into qualifications (ID,Surname, Name, Experience) values (1,'Ivanov', 'Petr',15);
