@@ -25,7 +25,11 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>User</servlet-name>
-        <url-pattern>/newuser</url-pattern>
+        <url-pattern>/createUser</url-pattern>
+        <url-pattern>/readUser</url-pattern>
+        <url-pattern>/readUsers</url-pattern>
+        <url-pattern>/updateUser</url-pattern>
+        <url-pattern>/deleteUser</url-pattern>
     </servlet-mapping>
 
 

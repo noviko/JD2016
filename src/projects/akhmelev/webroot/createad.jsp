@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ include file="z-top-menu.jsp" %>
 
-<form class="form-horizontal" action="newuser" method="post">
+<form class="form-horizontal" action="#" method="post">
     <fieldset>
 
         <!-- Form Name -->
