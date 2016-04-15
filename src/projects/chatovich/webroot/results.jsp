@@ -19,25 +19,25 @@
 	</hgroup>
 
 
-
-
-
-
-
-
-
-
     <section class="col-xs-12 col-sm-6 col-md-12">
-		<article class="search-result row">
-			<div class="col-xs-12 col-sm-12 col-md-4">
-				<img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" />
-			</div>
 
-			<div class="col-xs-12 col-sm-12 col-md-6 excerpet">
-				<h3><a href="#" title="">${anyUser} </a></h3>
-			</div>
-			<span class="clearfix borda"></span>
-		</article>
+    <c:forEach var="user" items="${users}" >
+            <article class="search-result row">
+            			<div class="col-xs-12 col-sm-12 col-md-4">
+            				<img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" />
+            			</div>
+
+            			<div class="col-xs-12 col-sm-12 col-md-6 excerpet">
+            				<h3><a href="#" title="">${user.name} ${user.surname} </a></h3>
+            				<h4>${city}</h4>
+            				<h4>${user.email}</h4>
+            				<p>${user.describtion}</p>
+            			</div>
+            			<span class="clearfix borda"></span>
+            		</article>
+        </c:forEach>
+
+
 
 
 	</section>
