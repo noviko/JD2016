@@ -29,8 +29,7 @@
             <ul class="nav navbar-nav">
               <li><a href=".">Поиск объявлений</a></li>
               <li><a href="createad.jsp">Создать объявление</a></li>
-              <li><a href="#no-link">Link</a></li>
-              <li><a href="#no-link">Link</a></li>
+              <li><a href="readUsers">Список пользователей</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="signup.jsp">Sign-up</a></li>

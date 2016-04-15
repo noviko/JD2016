@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ include file="z-top-menu.jsp" %>
 
-<form class="form-horizontal" action="newuser" method="post">
+<form class="form-horizontal" action="createUser" method="post">
     <fieldset>
 
         <!-- Form Name -->
@@ -11,7 +11,9 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="id">id пользователя</label>
             <div class="col-md-4">
-                <input id="id" name="ID" value="0" type="text" placeholder="" class="form-control input-md" required="">
+                <input id="id" name="ID" value="0" type="text"
+
+                placeholder="" class="form-control input-md" required="">
                 <span class="help-block">Это поле будет скрыто</span>
             </div>
         </div>
