@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ include file="top_menu.jsp" %>
 
-<form name = "register" action="register/" method="POST" class="form-horizontal" onSubmit="return validate(this)">
+<form name = "register" action="register" method="POST" class="form-horizontal" onSubmit="return validate(this)">
 
 <div class = "container">
         <div class="wrapper">

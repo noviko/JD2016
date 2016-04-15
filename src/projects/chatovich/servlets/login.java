@@ -65,7 +65,14 @@ public class login extends HttpServlet {
             resp.addCookie(pasCookie);
             session.setAttribute("auth",(Boolean)true);
             session.setAttribute("login", login);
-            resp.sendRedirect("/chatovich/index.jsp");
+            //resp.sendRedirect("/chatovich/index.jsp");
+            User user = new User();
+            for (Map.Entry<Integer, User> entry : users.entrySet()) {
+                user = entry.getValue();
+            }
+            req.setAttribute("user",user);
+            req.getRequestDispatcher("/index.jsp").forward(req,resp);
+
         } else {
             resp.sendRedirect("/chatovich/loginTryAgain.jsp");
 

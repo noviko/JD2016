@@ -28,10 +28,10 @@ public class search extends HttpServlet{
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
-        PrintWriter out = resp.getWriter();
+        //PrintWriter out = resp.getWriter();
 
         String city = req.getParameter("city");
-        out.println(city);
+        req.setAttribute("city", city);
 
         HashMap <Integer, User> users = new HashMap<>();
 
@@ -44,8 +44,9 @@ public class search extends HttpServlet{
             }
             else {
                 req.setAttribute("anyUser", false);
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/results.jsp");
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/results.jsp");
                 requestDispatcher.forward(req,resp);
+                //resp.sendRedirect("/chatovich/results.jsp");
             }
 
         } catch (SQLException e) {
@@ -53,17 +54,24 @@ public class search extends HttpServlet{
         }
 
             List<User> list = new ArrayList<>();
+        User user = new User();
             for (Map.Entry<Integer, User> entry : users.entrySet()) {
-                User user = entry.getValue();
+                user = entry.getValue();
                 //req.setAttribute("name",user.getName());
                 list.add(user);
             }
 
         req.setAttribute("anyUser", true);
         req.setAttribute("users", list);
+        req.setAttribute("username",list.get(0).getName());
+        req.setAttribute("user", user);
+        req.setAttribute("usersQuantity", list.size());
 
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/results.jsp");
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/results.jsp");
         requestDispatcher.forward(req,resp);
+
+        //resp.sendRedirect("/chatovich/results.jsp");
 
 
 

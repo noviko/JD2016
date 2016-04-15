@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -40,7 +41,7 @@ public class FilterAuth implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        HttpSession session = req.getSession();
+       /* HttpSession session = req.getSession();
         if (session == null) {
             resp.sendRedirect("/chatovich/login.jsp");
         }
@@ -51,7 +52,7 @@ public class FilterAuth implements Filter {
                 filterChain.doFilter(request,response);
                 return;
             }
-            else{
+            else{*/
 
                 Cookie[] myCookies = req.getCookies();
                 String cookieName = "login";
@@ -76,14 +77,23 @@ public class FilterAuth implements Filter {
                     e.printStackTrace();
                 }
                 if (users.size()==0) {
-                    resp.sendRedirect("/chatovich/login.jsp");
+                    //resp.sendRedirect("/chatovich/login.jsp");
+                    req.getRequestDispatcher("/login.jsp").forward(req,resp);
                 }
                 else {
-                    filterChain.doFilter(request,response);
+                    User user = new User();
+                    for (Map.Entry<Integer, User> entry : users.entrySet()) {
+                        user = entry.getValue();
+                    }
+                    /*req.setAttribute("user", user);
+                    req.setAttribute("ok", "hello");*/
+                    filterChain.doFilter(req,resp);
                     return;
+                    //req.getRequestDispatcher(req.getRequestURI()).forward(req,resp);
+                    //req.getRequestDispatcher("/search").forward(req,resp);
                 }
-            }
-        }
+      /*      }
+        }*/
         /*Cookie[] myCookies = req.getCookies();
         String cookieName = "login";
         String cookiePassword = "password";

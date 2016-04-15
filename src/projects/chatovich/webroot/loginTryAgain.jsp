@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ include file="top_menu.jsp" %>
 
-<form action="login/" method="POST" class="form-horizontal">
+<form action="login" method="POST" class="form-horizontal">
 
     <div class = "container">
         <div class="wrapper">

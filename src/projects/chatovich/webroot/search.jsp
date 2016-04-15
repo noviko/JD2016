@@ -23,7 +23,7 @@
 
   </div>
 
-<form action="search/" method="GET" class="form-horizontal">
+<form action="search" method="GET" class="form-horizontal">
 
         <fieldset>
 
