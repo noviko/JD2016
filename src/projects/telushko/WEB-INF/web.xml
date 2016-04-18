@@ -11,10 +11,11 @@
     <display-name>Test helloworld app.</display-name>
     <servlet>
         <servlet-name>HelloworldFromItAcademy</servlet-name>
-        <servlet-class>projects.telushko.servlets.hello</servlet-class>
+        <servlet-class>projects.telushko.servlets.Service</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HelloworldFromItAcademy</servlet-name>
-        <url-pattern>/hello/</url-pattern>
+        <url-pattern>/Service</url-pattern>
+        <url-pattern>/createUser</url-pattern>
     </servlet-mapping>
 </web-app>
