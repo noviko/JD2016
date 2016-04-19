@@ -1,0 +1,1 @@
+insert into crewman(Name,Surname,Experience,FK_qualification) values ('Ivanov','Petr','15');

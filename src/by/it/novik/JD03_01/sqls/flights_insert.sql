@@ -1,0 +1,1 @@
+insert into flights (Date,Time,FK_co_pilot,FK_pilot_in_command,FK_flight_engineer,FK_flight_attendant) values ('01.01.2016','06.10');
